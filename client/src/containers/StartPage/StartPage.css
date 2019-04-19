@@ -1,0 +1,58 @@
+
+.Header {
+    width: 728px;
+    height: 97px;
+    padding-left: 64px;
+    padding-top: 150px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: normal;
+}
+
+.SmallHeader {
+    width: 523px;
+    padding: 50px 64px;
+}
+
+:global(.ant-input-search) {
+    display: block;
+    padding: 0 64px;
+}
+
+:global(.ant-input-wrapper input) {
+    outline: none;
+    border: 1px solid transparent;
+    background: rgba(0, 95, 116, 0.18);
+    border-radius: 10px;    
+    font: inherit;
+    color: inherit;
+    padding: 6px 10px;
+    width: 358px;
+    height: 59px;
+    box-sizing: border-box;
+}
+
+:global(.ant-input-wrapper button) {
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid transparent;
+    background: #FFFFFF;
+    border-radius: 10px;    
+    font: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1888A2;
+    padding: 6px 10px;
+    margin-left: 15px;
+    width: 156px;
+    height: 59px;
+    box-sizing: border-box;
+}
+
+:global(.ant-input-wrapper button:hover) {
+    color: #ffffff;
+    background: #f6b93b;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
