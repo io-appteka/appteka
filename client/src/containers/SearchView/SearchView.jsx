@@ -8,7 +8,8 @@ export class SearchView extends React.Component {
         query: {
             drug: null,
             location: 'Krakow, Poland',
-        }
+        },
+        isInput: false,
     }
 
     componentDidMount() {
@@ -17,17 +18,17 @@ export class SearchView extends React.Component {
         for (let param of query.entries()){
             queryContent[param[0]] = param[1];
         }
-        this.setState({query: queryContent});
+        this.setState({query: queryContent, isInput: true});
     }
 
     render() {
         return (
             <div className={styles.SearchView}>
                 <Card>
-                    <SearchField
+                    {this.state.isInput && <SearchField
                         drug={this.state.query.drug}
                         location={this.state.query.location}
-                    />
+                    />}
                     SearchView
                 </Card>
             </div>
