@@ -1,4 +1,8 @@
 
+.MainPage {
+
+}
+
 .Header {
     width: 728px;
     height: 97px;
@@ -15,12 +19,12 @@
     padding: 50px 64px;
 }
 
-:global(.ant-input-search) {
+.MainPage :global(.ant-input-search) {
     display: block;
     padding: 0 64px;
 }
 
-:global(.ant-input-wrapper input) {
+.MainPage :global(.ant-input-wrapper input) {
     outline: none;
     border: 1px solid transparent;
     background: rgba(0, 95, 116, 0.18);
