@@ -1,9 +1,13 @@
 import React from 'react';
+import { Card } from '../../components/Card/Card';
+import styles from './PharmacyList.css';
 
 export class PharmacyList extends React.Component {
     render() {
         return (
-            <div>PharmacyList</div>
+            <div className={styles.PharmacyList}>
+                <Card>PharmacyList</Card>
+            </div>
         );
     }
 }
