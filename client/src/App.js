@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Layout} from './components/Layout/Layout';
 import {StartPage} from './containers/StartPage/StartPage';
+import { DrugList } from './containers/DrugList/DrugList';
+import { PharmacyList } from './containers/PharmacyList/PharmacyList';
+import { AboutUs } from './containers/AboutUs/AboutUs';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -10,6 +13,9 @@ class App extends Component {
         <Layout>
           <Switch>
             <Route path="/" exact component={StartPage}/>
+            <Route path="/drugs" component={DrugList}/>
+            <Route path="/pharmacies" component={PharmacyList}/>
+            <Route path="/about" component={AboutUs}/>
           </Switch>
         </Layout>
       </div>
