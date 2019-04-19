@@ -4,8 +4,8 @@ import { NavigationItem } from './NavigationItem/NavigationItem';
 
 export const NavigationItems = () => (
     <ul className={styles.NavigationItems}>
-        <NavigationItem link="/">Drugs</NavigationItem>
-        <NavigationItem link="/">Pharmacies</NavigationItem>
-        <NavigationItem link="/">About</NavigationItem>
+        <NavigationItem link="/drugs">Drugs</NavigationItem>
+        <NavigationItem link="/pharmacies">Pharmacies</NavigationItem>
+        <NavigationItem link="/about">About</NavigationItem>
     </ul>
 );
