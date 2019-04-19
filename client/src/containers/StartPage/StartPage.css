@@ -37,7 +37,7 @@
     box-sizing: border-box;
 }
 
-:global(.ant-input-wrapper button) {
+.MainPage :global(.ant-input-wrapper button) {
     text-transform: uppercase;
     outline: none;
     border: 1px solid transparent;
@@ -54,7 +54,7 @@
     box-sizing: border-box;
 }
 
-:global(.ant-input-wrapper button:hover) {
+.MainPage :global(.ant-input-wrapper button:hover) {
     color: #ffffff;
     background: #f6b93b;
     transition: all 0.4s ease 0s;
