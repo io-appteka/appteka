@@ -1,0 +1,43 @@
+.SearchField {
+    position: relative;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.SearchField input {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    width: 190px;
+    height: 37px;
+    margin: 0 5px; 
+    outline: none;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 14px;
+    color: inherit;
+    box-sizing: border-box;
+    padding: 9px 10px;
+}
+
+.SearchField button {
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid transparent;
+    background: #7BDBF0;
+    border-radius: 6px;    
+    font: inherit;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 1px 10px;
+    margin-left: 5px;
+    width: 100px;
+    height: 37px;
+    box-sizing: border-box;
+}
+
+.SearchField button:hover {
+    background: #FF53BA;;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}

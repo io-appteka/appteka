@@ -11,7 +11,7 @@ export class StartPage extends React.Component {
         // via this.props.location.search
         //then: connection to the server via axios
         if (value !== '') {
-            const queryString = `search=${encodeURIComponent(value)}`;
+            const queryString = `drug=${encodeURIComponent(value)}&location=Kraków`;
             history.push({
                 pathname: '/listing',
                 search: '?' + queryString,
