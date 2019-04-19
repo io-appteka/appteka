@@ -56,7 +56,7 @@
 
 .MainPage :global(.ant-input-wrapper button:hover) {
     color: #ffffff;
-    background: #f6b93b;
+    background: #FF53BA;;
     transition: all 0.4s ease 0s;
     cursor: pointer;
 }
