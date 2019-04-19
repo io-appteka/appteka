@@ -11,7 +11,8 @@
     color: #ffffff;
     text-decoration: none;
     height: 100%;
-    padding: 16px 24px;
+    padding: 16px 0;
+    margin: 0 24px;
     border-bottom: 1px solid transparent;
     box-sizing: border-box;
     display: block;
