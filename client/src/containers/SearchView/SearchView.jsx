@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../../components/Card/Card';
 import styles from './SearchView.css';
-import { SearchField } from '../../components/UI/SearchField/SearchField';
+import { SearchField } from '../../components/UI/Search/SearchField/SearchField';
 import { DrugDescription } from '../../components/DrugDescription/DrugDescription';
 
 export class SearchView extends React.Component {
