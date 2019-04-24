@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './StartPage.css';
-import { FirstSearch } from '../../components/UI/Search/FirstSearch/FirstSearch';
+import { FirstSearch } from '../../components/UI/Forms/FirstSearch/FirstSearch';
 
 export class StartPage extends React.Component {
     state = {
