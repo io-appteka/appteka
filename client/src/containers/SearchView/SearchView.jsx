@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card } from '../../components/Card/Card';
 import styles from './SearchView.css';
-import { SearchField } from '../../components/UI/Search/SearchField/SearchField';
+import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { DrugDescription } from '../../components/DrugDescription/DrugDescription';
+import { PricesList } from '../../components/Lists/PricesList/PricesList';
 
 export class SearchView extends React.Component {
     state = {
@@ -15,6 +16,7 @@ export class SearchView extends React.Component {
             name: null,
             desc: null,
         },
+        data: [],
     }
 
     componentDidMount() {
@@ -30,6 +32,35 @@ export class SearchView extends React.Component {
             name:"Prednisone",
             desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders. Prednisone belongs to a class of drugs known as corticosteroids. It decreases your immune system's response to various diseases to reduce symptoms such as swelling and allergic-type reactions.",
         }});
+
+        //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId) received (should be sorted!)
+        this.setState({data: [
+            {
+                pharmacyName: 'Ziko',
+                price: '14.99',
+                pharmacyChainId: 'sdf9d98f',
+            },
+            {
+                pharmacyName: 'Niezapominajka',
+                price: '15.00',
+                pharmacyChainId: 'rr049u30',
+            },
+            {
+                pharmacyName: 'Słoneczna',
+                price: '24.30',
+                pharmacyChainId: 'etr40403',
+            },
+            {
+                pharmacyName: 'DOZ',
+                price: '26.19',
+                pharmacyChainId: '093cm4003',
+            },
+            {
+                pharmacyName: 'Super-Pharm',
+                price: '26.39',
+                pharmacyChainId: '4304593s2',
+            },
+        ]});
     }
 
     render() {
@@ -41,7 +72,7 @@ export class SearchView extends React.Component {
                         location={this.state.query.location}
                     />}
                     <DrugDescription drugInfo={this.state.drugDescrition}/>
-                    SearchView
+                    <PricesList data={this.state.data}/>
                 </Card>
             </div>
         );

@@ -1,0 +1,70 @@
+@import '../../../../../node_modules/antd/es/dropdown/style/index.css';
+@import '../../../../../node_modules/antd/es/auto-complete/style/index.css';
+@import '../../../../../node_modules/antd/es/select/style/index.css';
+.FirstSearch {
+}
+
+.FirstSearch :global(.index__ant-select-selection--single) {
+    height: 59px !important;
+}
+
+.FirstSearch :global(.index__ant-select) {
+    margin: 20px 0 20px 64px;
+    transform: translateY(-14px);
+}
+
+:global(.index__ant-select-dropdown-menu) {
+    max-height: 150px;
+}
+
+:global(.index__ant-select-selection){
+    background: rgba(0, 95, 116, 0.18);
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #595959;
+    border-radius: 3px;
+}
+
+.FirstSearch input {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 10px;    
+    font: inherit;
+    color: inherit;
+    padding: 6px 10px;
+    width: 358px !important;
+    height: 59px !important;
+    box-sizing: border-box;
+}
+
+.FirstSearch button {
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid transparent;
+    background: #FFFFFF;
+    border-radius: 10px;    
+    font: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1888A2;
+    padding: 6px 10px;
+    margin: 20px 30px;
+    width: 156px;
+    height: 59px;
+    box-sizing: border-box;
+}
+
+.FirstSearch button:hover {
+    color: #ffffff;
+    background: #FF53BA;;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}

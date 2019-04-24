@@ -1,0 +1,25 @@
+.PriceItem {
+    padding: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.PriceItem:not(:last-child){
+    border-bottom: 1px solid #C5C5C5;
+}
+
+.PharmacyName {
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.74);
+}
+
+.Price {
+    font-weight: bold;
+    font-size: 38px;
+    color: #FF53BA;
+}
+
+.Price small {
+    font-size: 25px;
+}
