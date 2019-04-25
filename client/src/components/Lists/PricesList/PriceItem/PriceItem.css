@@ -23,3 +23,14 @@
 .Price small {
     font-size: 25px;
 }
+
+.Locations {
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.47);
+}
+
+.Locations svg {
+    height: 10px;
+    width: 30px;
+}
