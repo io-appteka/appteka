@@ -70,6 +70,7 @@ export class SearchView extends React.Component {
                     {this.state.isInput && <SearchField
                         drug={this.state.query.drug}
                         location={this.state.query.location}
+                        history={this.props.history}
                     />}
                     <DrugDescription drugInfo={this.state.drugDescrition}/>
                     <PricesList data={this.state.data}/>
