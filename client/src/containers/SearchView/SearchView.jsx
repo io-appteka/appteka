@@ -33,32 +33,122 @@ export class SearchView extends React.Component {
             desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders. Prednisone belongs to a class of drugs known as corticosteroids. It decreases your immune system's response to various diseases to reduce symptoms such as swelling and allergic-type reactions.",
         }});
 
-        //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId) received (should be sorted!)
-        this.setState({data: [
+        //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId and list of locations) received (should be sorted!)
+        //list of locations
+        //list of 3 nearest pharmacies to provided location
+            //address 
+            //distance - in kilometers
+            //pharmacyStoreId - unique ID
+        this.setState({
+    data: [
             {
                 pharmacyName: 'Ziko',
                 price: '14.99',
                 pharmacyChainId: 'sdf9d98f',
+                locations: [
+                    {
+                        address: 'Prądnicka 7',
+                        distance: 0.78,
+                        pharmacyStoreId: 'fsdlkfsd',
+                    },
+                    {
+                        address: 'Aleja Pokoju 14',
+                        distance: 0.94,
+                        pharmacyStoreId: 'jf32e9esd',
+                    },
+                    {
+                        address: 'Stella-Sawickiego 12',
+                        distance: 1.33,
+                        pharmacyStoreId: 'f409urq3ie',
+                    },
+                ],
             },
             {
                 pharmacyName: 'Niezapominajka',
                 price: '15.00',
                 pharmacyChainId: 'rr049u30',
+                locations: [
+                    {
+                        address: 'Prądnicka 7',
+                        distance: 0.78,
+                        pharmacyStoreId: 'fsdlkfsd',
+                    },
+                    {
+                        address: 'Aleja Pokoju 14',
+                        distance: 0.94,
+                        pharmacyStoreId: 'jf32e9esd',
+                    },
+                    {
+                        address: 'Stella-Sawickiego 12',
+                        distance: 1.33,
+                        pharmacyStoreId: 'f409urq3ie',
+                    },
+                ],
             },
             {
                 pharmacyName: 'Słoneczna',
                 price: '24.30',
                 pharmacyChainId: 'etr40403',
+                locations: [
+                    {
+                        address: 'Prądnicka 7',
+                        distance: 0.78,
+                        pharmacyStoreId: 'fsdlkfsd',
+                    },
+                    {
+                        address: 'Aleja Pokoju 14',
+                        distance: 0.94,
+                        pharmacyStoreId: 'jf32e9esd',
+                    },
+                    {
+                        address: 'Stella-Sawickiego 12',
+                        distance: 1.33,
+                        pharmacyStoreId: 'f409urq3ie',
+                    },
+                ],
             },
             {
                 pharmacyName: 'DOZ',
                 price: '26.19',
                 pharmacyChainId: '093cm4003',
-            },
+                locations: [
+                    {
+                        address: 'Prądnicka 7',
+                        distance: 0.78,
+                        pharmacyStoreId: 'fsdlkfsd',
+                    },
+                    {
+                        address: 'Aleja Pokoju 14',
+                        distance: 0.94,
+                        pharmacyStoreId: 'jf32e9esd',
+                    },
+                    {
+                        address: 'Stella-Sawickiego 12',
+                        distance: 1.33,
+                        pharmacyStoreId: 'f409urq3ie',
+                    },
+                ],},
             {
                 pharmacyName: 'Super-Pharm',
                 price: '26.39',
                 pharmacyChainId: '4304593s2',
+                locations: [
+                    {
+                        address: 'Prądnicka 7',
+                        distance: 0.78,
+                        pharmacyStoreId: 'fsdlkfsd',
+                    },
+                    {
+                        address: 'Aleja Pokoju 14',
+                        distance: 0.94,
+                        pharmacyStoreId: 'jf32e9esd',
+                    },
+                    {
+                        address: 'Stella-Sawickiego 12',
+                        distance: 1.33,
+                        pharmacyStoreId: 'f409urq3ie',
+                    },
+                ],
             },
         ]});
     }
