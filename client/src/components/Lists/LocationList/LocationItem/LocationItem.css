@@ -1,0 +1,37 @@
+.LocationItem {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 10px 0 10px 0;
+}
+
+.LocationItem svg {
+    color: #FF53BA;
+    padding-right: 10px;
+}
+
+.Address {
+    display: inline-block;
+    position: relative;
+    width: 260px;
+}
+
+.Address span {
+    position: relative;
+    padding-right: 10px;
+}
+
+.Address span::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.47);
+    width: calc(250px - 100%);
+    left: 100%;
+    top: 12px;
+  }
+
+.Distance {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.47);
+}
