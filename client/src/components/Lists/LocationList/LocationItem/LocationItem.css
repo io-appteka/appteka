@@ -13,6 +13,7 @@
     display: inline-block;
     position: relative;
     width: 260px;
+    color: rgba(0, 0, 0, 0.74);
 }
 
 .Address span {
@@ -34,4 +35,18 @@
 .Distance {
     display: inline-block;
     color: rgba(0, 0, 0, 0.47);
+}
+
+.Link {
+    margin-left: 20px;
+    outline: none;
+    background: transparent;
+    border: none;
+    font: inherit;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FF53BA;
+    display: flex;
+    text-decoration-line: underline;
+    cursor: pointer;
 }
