@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace server.Models
 {
-    public class Ingredient
+    public class PharmacyStore : ISearchable
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public PharmacyChain PharmacyChain { get; set; }
     }
 }

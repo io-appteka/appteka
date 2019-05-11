@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace server.Models
 {
-    public class Ingredient
+    public class Report
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public User Author { get; set; }
+        public IReportable ReportedStuff { get; set; }
+
     }
 }
