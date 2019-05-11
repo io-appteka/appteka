@@ -1,12 +1,13 @@
 .DrugDescription {
-    padding-top: 50px;
 }
 
 .DrugDescription h1 {
     color: #FF53BA;
+    margin-bottom: 10px;
 }
 
 .DrugDescription p {
+    margin-top: 5px;
     line-height: 22px;
     text-align: justify;
 }
