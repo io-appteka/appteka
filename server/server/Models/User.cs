@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace server.Models
 {
-    public class User
+    public class User : ISearchable
     {
         public string Username { get; set; }
         public string Email { get; set; }
