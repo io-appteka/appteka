@@ -7,5 +7,6 @@ export const NavigationItems = () => (
         <NavigationItem link="/drugs">Drugs</NavigationItem>
         <NavigationItem link="/pharmacies">Pharmacies</NavigationItem>
         <NavigationItem link="/about">About</NavigationItem>
+        <NavigationItem link="/auth">Authenticate</NavigationItem>
     </ul>
 );

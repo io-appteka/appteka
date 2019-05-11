@@ -1,0 +1,65 @@
+.Auth {
+    margin-top: 50px;
+    background: white;
+    border-radius: 10px;
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    left: 50%;
+    transform: translate(-50%,0);
+    color: rgba(0, 0, 0, 0.74);
+}
+
+.Auth input {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease 0s;
+    border-radius: 6px;
+    height: 37px;
+    margin: 0 5px; 
+    outline: none;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 14px;
+    color: inherit;
+    box-sizing: border-box;
+    padding: 9px 10px;
+    margin: 10px 0;
+    display: block;
+}
+
+.Auth button {
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid transparent;
+    background: #7BDBF0;
+    border-radius: 6px;    
+    font: inherit;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    width: 100px;
+    height: 37px;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.Auth button:disabled {
+    cursor: not-allowed !important;
+}
+
+.Auth button:not(:disabled):hover {
+    background: #FF53BA;;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+:global(.ant-input).Unvalid {
+    background: #ffcccc;
+    transition: all 0.4s ease 0s;
+}
