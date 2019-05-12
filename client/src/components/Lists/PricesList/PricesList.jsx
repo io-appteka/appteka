@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PricesList.css';
-import { PriceItem } from './PriceItem/PriceItem';
+import PriceItem from './PriceItem/PriceItem';
 
 export const PricesList = ({data}) => (
     <ul className={styles.PricesList}>
