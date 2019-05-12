@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './PriceItem.css';
+import { connect } from 'react-redux';
 import { Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { LocationList } from '../../LocationList/LocationList';
 
-export class PriceItem extends React.Component {
+class priceItem extends React.Component {
     state = {
         isOpened: false,
     };
@@ -31,10 +32,18 @@ export class PriceItem extends React.Component {
                 </div>
                 <div className={styles.FlexBox}>
                     <div className={styles.Locations}>lokalizacje{isOpened ? <Icon type="up"/> : <Icon type="down"/>}</div>
-                    <NavLink className={styles.ReportLink} to='/report'>zgłoś inną cenę</NavLink>
+                    <NavLink className={styles.ReportLink} to={this.props.isAuthenticated ? '/report' : '/auth'}>zgłoś inną cenę</NavLink>
                 </div>
                 {dropdown}
             </li>
         );
     };
 };
+
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null,
+    };
+};
+
+export const PriceItem = connect(mapStateToProps, null)(priceItem);

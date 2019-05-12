@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Spin, Alert } from 'antd';
+import { Redirect } from 'react-router-dom';
 
 import styles from './Auth.css';
 import { Input, Button } from 'antd';
@@ -140,8 +141,14 @@ class auth extends React.Component {
             )
         }
 
+        let authRedirect = null;
+        if (this.props.isAuthenticated) {
+            authRedirect = <Redirect to='/'/>;
+        }
+
         return(
             <div className={styles.Auth}>
+                {authRedirect}
                 <form>
                     {errorMessage}
                     {form}
@@ -158,6 +165,7 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
+        isAuthenticated: state.auth.token !== null,
     };
 };
 

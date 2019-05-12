@@ -6,6 +6,7 @@ import { PharmacyList } from './containers/PharmacyList/PharmacyList';
 import { AboutUs } from './containers/AboutUs/AboutUs';
 import { SearchView } from './containers/SearchView/SearchView';
 import { Auth } from './containers/Auth/Auth';
+import { Logout } from './containers/Auth/Logout/Logout';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={StartPage}/>
             <Route path="/auth" component={Auth}/>
+            <Route path="/logout" component={Logout}/>
             <Route path="/drugs" component={DrugList}/>
             <Route path="/pharmacies" component={PharmacyList}/>
             <Route path="/about" component={AboutUs}/>
