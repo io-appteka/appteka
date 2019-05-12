@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Spin, Alert } from 'antd';
 
 import styles from './Auth.css';
 import { Input, Button } from 'antd';
@@ -11,7 +12,7 @@ class auth extends React.Component {
             email: {
                 elementConfig:{
                     type: 'email',
-                    placeholder: 'Email Address',
+                    placeholder: 'Adres email',
                 },
                 value: '',
                 validation: {
@@ -23,7 +24,7 @@ class auth extends React.Component {
             password: {
                 elementConfig:{
                     type: 'password',
-                    placeholder: 'Password',
+                    placeholder: 'Hasło',
                 },
                 value: '',
                 validation: {
@@ -34,6 +35,7 @@ class auth extends React.Component {
             },
         },
         formIsValid: false,
+        isSignup: true,
     }
 
     checkValidity = (value, rules) => {
@@ -60,8 +62,14 @@ class auth extends React.Component {
     }
 
     onClickHandler = () => {
-        const { controls } = this.state;
-        this.props.onAuth(controls.email.value, controls.password.value);
+        const { controls, isSignup } = this.state;
+        this.props.onAuth(controls.email.value, controls.password.value, isSignup);
+    };
+
+    switchAuthModeHandler = () => {
+        this.setState(prevState => ({
+            isSignup: !prevState.isSignup,
+        }));
     };
 
     onChangeHandler = (event, key) => {
@@ -93,7 +101,7 @@ class auth extends React.Component {
             })
         }
 
-        const form = formElementsArray.map(formElement => (
+        let form = formElementsArray.map(formElement => (
             <Input
                 className={formElement.config.valid ? '' : styles.Unvalid}
                 key={formElement.id}
@@ -101,21 +109,62 @@ class auth extends React.Component {
                 {...formElement.config.elementConfig}/>
         ));
 
+        if (this.props.loading) {
+            form = <Spin size="large" prefixCls='index__ant-spin' tip="Loading..."/>;
+        }
+
+        let errorMessage = null;
+        if (this.props.error) {
+            let info = 'Błąd połączenia';
+            const {message} = this.props.error;
+            if (message === 'EMAIL_EXISTS') {
+                info = 'Podany adres istnieje';
+            }
+            if (message === 'EMAIL_NOT_FOUND' || message === 'INVALID_PASSWORD') {
+                info = 'zły email lub login';
+            }
+            if (message === 'USER_DISABLED') {
+                info = 'użytkownik zablokowany';
+            }
+            if (message === 'INVALID_EMAIL') {
+                info = 'niepoprawny adres email';
+            }
+            errorMessage = (
+                <Alert
+                    prefixCls='index__ant-alert'
+                    message="Błąd"
+                    description={info}
+                    type="error"
+                    showIcon
+                />
+            )
+        }
+
         return(
             <div className={styles.Auth}>
                 <form>
+                    {errorMessage}
                     {form}
-                    <Button disabled={!formIsValid} onClick={this.onClickHandler}>submit</Button>
+                    <Button className={styles.Register} disabled={!formIsValid} onClick={this.onClickHandler}>{this.state.isSignup ? 'zarejestruj się' : 'zaloguj się'}</Button>
+                    <Button className={styles.Switch} onClick={this.switchAuthModeHandler}>
+                        {this.state.isSignup ? 'mam już konto' : 'nie mam konta'}</Button>
                 </form>
             </div>
         );
     };
 };
 
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error,
+    };
+};
+
 const mapDispatchToPros = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password)),
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
     }
 }
 
-export const Auth = connect(null,mapDispatchToPros)(auth);
+export const Auth = connect(mapStateToProps,mapDispatchToPros)(auth);

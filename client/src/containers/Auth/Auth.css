@@ -1,3 +1,6 @@
+@import '../../../node_modules/antd/es/spin/style/index.css';
+@import '../../../node_modules/antd/es/alert/style/index.css';
+
 .Auth {
     margin-top: 50px;
     background: white;
@@ -35,18 +38,26 @@
     text-transform: uppercase;
     outline: none;
     border: 1px solid transparent;
-    background: #7BDBF0;
     border-radius: 6px;    
     font: inherit;
     font-weight: bold;
     font-size: 14px;
     color: #ffffff;
-    width: 100px;
+    width: 150px;
     height: 37px;
     box-sizing: border-box;
     display: block;
     margin: 0 auto;
-    margin-top: 20px;
+}
+
+.Register {
+    background: #7BDBF0;
+    margin-top: 20px !important;
+}
+
+.Switch {
+    background: #ff80ff;
+    margin-top: 10px !important;
 }
 
 .Auth button:disabled {
@@ -62,4 +73,12 @@
 :global(.ant-input).Unvalid {
     background: #ffcccc;
     transition: all 0.4s ease 0s;
+}
+
+.Auth :global(.index__ant-spin) {
+    padding: 18px 0 18px 40px;
+}
+
+.Auth :global(.index__ant-alert) {
+    width: 280px;
 }
