@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './PriceItem.css';
 import { connect } from 'react-redux';
+import * as actions from '../../../../store/actions/index';
 import { Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { LocationList } from '../../LocationList/LocationList';
 
-class priceItem extends React.Component {
+class PriceItem extends React.Component {
     state = {
         isOpened: false,
     };
@@ -16,6 +17,10 @@ class priceItem extends React.Component {
     };
 
     //zglos inna cene - nawigacja czy popup z fromularzem
+    reportHandler = () => {
+        this.props.onSetRedirectPath('/report');
+    }
+
     render(){
         const { pharmacyName, price, locations } = this.props;
         const { isOpened } = this.state;
@@ -32,11 +37,19 @@ class priceItem extends React.Component {
                 </div>
                 <div className={styles.FlexBox}>
                     <div className={styles.Locations}>lokalizacje{isOpened ? <Icon type="up"/> : <Icon type="down"/>}</div>
-                    <NavLink className={styles.ReportLink} to={this.props.isAuthenticated ? '/report' : '/auth'}>zgłoś inną cenę</NavLink>
+                    <NavLink className={styles.ReportLink} 
+                    onClick={this.reportHandler} 
+                    to='/auth'>zgłoś inną cenę</NavLink>
                 </div>
                 {dropdown}
             </li>
         );
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSetRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path)),
     };
 };
 
@@ -46,4 +59,4 @@ const mapStateToProps = state => {
     };
 };
 
-export const PriceItem = connect(mapStateToProps, null)(priceItem);
+export default connect(mapStateToProps, mapDispatchToProps)(PriceItem);
