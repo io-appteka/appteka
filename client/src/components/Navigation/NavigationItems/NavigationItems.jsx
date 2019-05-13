@@ -8,7 +8,8 @@ export const NavigationItems = ({isAuth, onLogin}) => (
         <NavigationItem link="/pharmacies">Pharmacies</NavigationItem>
         <NavigationItem link="/about">About</NavigationItem>
         {isAuth
-            ? <NavigationItem link="/logout">Logout</NavigationItem> 
-            : <NavigationItem link="/auth" onClick={onLogin}>Authenticate</NavigationItem>}
+            ? <NavigationItem link="/logout">Log out</NavigationItem> 
+            : <NavigationItem link="/auth" onClick={onLogin}>Log in</NavigationItem>}
+        {isAuth ? null : <NavigationItem link="/register" onClick={onLogin}>Register</NavigationItem>}
     </ul>
 );
