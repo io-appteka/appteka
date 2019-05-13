@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './DrugDescription.css';
-import { Tag } from '../UI/Tag/Tag';
 
 export const DrugDescription = ({drugInfo}) => (
     <div className={styles.DrugDescription}>
