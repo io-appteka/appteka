@@ -1,0 +1,8 @@
+@import '../../../../node_modules/antd/es/rate/style/index.css';
+
+.Rating {
+}
+
+.Rating :global(.index__ant-rate) {
+    color: #77D9EE;
+}
