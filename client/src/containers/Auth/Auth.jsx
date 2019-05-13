@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Spin, Alert } from 'antd';
 import { Redirect } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import styles from './Auth.css';
 import { Input, Button } from 'antd';
 import * as actions from '../../store/actions/index';
@@ -37,6 +37,24 @@ class auth extends React.Component {
         },
         formIsValid: false,
         isSignup: true,
+    }
+
+    componentWillReceiveProps() {
+        const { pathname } = this.props.history.location;
+        if (pathname === '/auth') {
+            this.setState({isSignup: false});
+        } else if (pathname === '/register') {
+            this.setState({isSignup: true});
+        }
+    }
+    
+    componentWillMount() {
+        const { pathname } = this.props.history.location;
+        if (pathname === '/auth') {
+            this.setState({isSignup: false});
+        } else if (pathname === '/register') {
+            this.setState({isSignup: true});
+        }
     }
 
     checkValidity = (value, rules) => {
@@ -92,7 +110,7 @@ class auth extends React.Component {
     };
 
     render(){
-        const { formIsValid } = this.state; 
+        const { formIsValid, isSignup } = this.state; 
         const formElementsArray = [];
 
         for (let key in this.state.controls) {
@@ -111,7 +129,7 @@ class auth extends React.Component {
         ));
 
         if (this.props.loading) {
-            form = <Spin size="large" prefixCls='index__ant-spin' tip="Loading..."/>;
+            form = <div className={styles.Spin}><Spin size="large" prefixCls='index__ant-spin'/></div>;
         }
 
         let errorMessage = null;
@@ -146,15 +164,19 @@ class auth extends React.Component {
             authRedirect = <Redirect to={this.props.authRedirectPath}/>;
         }
 
+        let switchBtn = (<p>Don't have an account?<NavLink className={styles.Switch} to="/register">
+        Register</NavLink></p>);
+        if (isSignup) switchBtn = (<p>Already have an account?<NavLink className={styles.Switch} to="/auth">
+        Log in</NavLink></p>);
         return(
             <div className={styles.Auth}>
                 {authRedirect}
                 <form>
+                    <h1>{isSignup ? 'Registration form' : 'Log in to Appteka'}</h1>
                     {errorMessage}
                     {form}
-                    <Button className={styles.Register} disabled={!formIsValid} onClick={this.onClickHandler}>{this.state.isSignup ? 'zarejestruj się' : 'zaloguj się'}</Button>
-                    <Button className={styles.Switch} onClick={this.switchAuthModeHandler}>
-                        {this.state.isSignup ? 'mam już konto' : 'nie mam konta'}</Button>
+                    <Button className={styles.Register} disabled={!formIsValid} onClick={this.onClickHandler}>{isSignup ? 'Create an account' : 'Log in'}</Button>
+                    {switchBtn}
                 </form>
             </div>
         );

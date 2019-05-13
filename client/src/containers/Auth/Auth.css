@@ -4,67 +4,101 @@
 .Auth {
     margin-top: 50px;
     background: white;
-    border-radius: 10px;
+    border-radius: 30px;
     position: absolute;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 684px;
     left: 50%;
     transform: translate(-50%,0);
     color: rgba(0, 0, 0, 0.74);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
+.Auth p {
+    color: rgba(0, 0, 0, 0.47);
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Auth h1 {
+    color: #FF53BA;
+    font-size: 30px;
+    line-height: 37px;
+    margin-top: 0;
+    margin-bottom: 70px;
+    align-items: center;
+    text-align: center; 
+}
+
+.Auth form {
+    display: block;
+}
 .Auth input {
-    width: 280px;
-    background: rgba(0, 0, 0, 0.08);
+    width: 524px;
+    background: transparent;
+    font: inherit;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
     transition: all 0.4s ease 0s;
-    border-radius: 6px;
+    border-radius: 6px 6px 0 0;
     height: 37px;
     margin: 0 5px; 
+    color: rgba(0, 0, 0, 0.47);
     outline: none;
-    border: 1px solid transparent;
-    font: inherit;
-    font-size: 14px;
-    color: inherit;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.74);
     box-sizing: border-box;
     padding: 9px 10px;
     margin: 10px 0;
     display: block;
 }
 
-.Auth button {
-    text-transform: uppercase;
-    outline: none;
-    border: 1px solid transparent;
-    border-radius: 6px;    
-    font: inherit;
-    font-weight: bold;
-    font-size: 14px;
-    color: #ffffff;
-    width: 150px;
-    height: 37px;
-    box-sizing: border-box;
+.Register {
+    width: 310px;
+    height: 51px;
+    border-radius: 13px;
     display: block;
     margin: 0 auto;
+    margin-top: 80px;
+    border: transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    background: grey;
 }
 
-.Register {
-    background: #7BDBF0;
-    margin-top: 20px !important;
+.Register:hover {
+    transition: all 0.4s ease 0s;
+    background: #FF53BA;
+
 }
 
-.Switch {
-    background: #ff80ff;
-    margin-top: 10px !important;
+.Switch 
+{
+    margin-left: 10px;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #43BBD6;
+    background: transparent;
+    border: none;
+    text-decoration: none;
 }
 
-.Auth button:disabled {
+.Register:disabled {
+    background: grey;
     cursor: not-allowed !important;
 }
 
-.Auth button:not(:disabled):hover {
+.Register:not(:disabled):hover {
     background: #FF53BA;;
     transition: all 0.4s ease 0s;
     cursor: pointer;
@@ -76,9 +110,16 @@
 }
 
 .Auth :global(.index__ant-spin) {
-    padding: 18px 0 18px 40px;
+    padding-top: 35px;
 }
 
 .Auth :global(.index__ant-alert) {
     width: 280px;
+}
+
+.Spin {
+    width: 524px;
+    height: 85px;
+    align-content: center;
+    text-align: center;
 }
