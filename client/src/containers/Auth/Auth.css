@@ -114,7 +114,6 @@
 }
 
 .Auth :global(.index__ant-alert) {
-    width: 280px;
 }
 
 .Spin {
