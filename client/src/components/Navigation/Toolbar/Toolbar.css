@@ -13,10 +13,12 @@
 }
 
 .Logo {
+    position: absolute;
+    margin-left: 37%;
     padding-top: 20px;
     font-style: normal;
     font-weight: 900;
-    font-size: 24px;
+    font-size: 28px;
     line-height: normal;
     text-align: center;
 }
@@ -24,3 +26,35 @@
 .Toolbar nav {
     height: 100%;
 }
+
+.Logging {
+    display: flex;
+    height: 100%;
+}
+
+.Logging a {
+    text-decoration: none;
+    height: 100%;
+    padding: 16px 0;
+    margin: 0 24px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.Logging a:hover,
+.Logging a:active,
+.Logging a.active {
+    border-bottom: 1px solid #ffffff;
+}
+
+.Register a {
+    color: #FF53BA !important;
+    font-weight: 800;
+}
+
+.Register a:hover {
+    color: #ffffff !important;
+     border-bottom: 1px solid #FF53BA;
+}
+
+
