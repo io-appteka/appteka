@@ -13,38 +13,35 @@ namespace server.Controllers
     public class DrugsController : ControllerBase
     {
         private ApptekaDbContext _context;
+
         public DrugsController(ApptekaDbContext context)
         {
             DbInitializer.Initialize(context);
             _context = context;
         }
-        // GET api/values
+
         [HttpGet]
         public ActionResult<IEnumerable<Drug>> Get()
         {
             return _context.Drugs;
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Drug> Get([FromQuery] int id)
         {
-            return "value";
+            return _context.Drugs.FirstOrDefault(d => d.Id == id);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Create([FromBody] string value)
         {
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
