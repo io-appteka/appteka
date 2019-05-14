@@ -4,7 +4,6 @@ import styles from './SearchView.css';
 import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { DrugDescription } from '../../components/DrugDescription/DrugDescription';
 import { PricesList } from '../../components/Lists/PricesList/PricesList';
-import Content from '../../components/Content/Content';
 
 export class SearchView extends React.Component {
     state = {
@@ -18,9 +17,6 @@ export class SearchView extends React.Component {
             desc: null,
         },
         data: [],
-        myArray: [
-            {content: 1, body : "abcdef dummy text idk what to do"},
-        ]
     }
 
     componentDidMount() {
@@ -161,21 +157,6 @@ export class SearchView extends React.Component {
         return (
             <div className={styles.SearchView}>
                 <Card>
-                                  
-                    <div>
-                        <ul>
-                            {
-                                this.state.myArray.map((content,index)=>{
-                                return(
-                                    <Content/>
-                                )
-                            })
-                                }
-                        </ul>
-                    </div>
-                         
-                             
-                             
                     {this.state.isInput && <SearchField
                         drug={this.state.query.drug}
                         location={this.state.query.location}
