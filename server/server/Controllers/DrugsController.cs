@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using server.Data;
+using server.Models;
 
 namespace server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class DrugsController : ControllerBase
     {
+        private ApptekaDbContext _context;
+        public DrugsController(ApptekaDbContext context)
+        {
+            DbInitializer.Initialize(context);
+            _context = context;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Drug>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Drugs;
         }
 
         // GET api/values/5
