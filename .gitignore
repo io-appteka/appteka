@@ -17,3 +17,6 @@
 /client/.env.development.local
 /client/.env.test.local
 /client/.env.production.local
+
+# some visual studio staff
+.vs
