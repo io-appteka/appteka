@@ -9,7 +9,6 @@ namespace server.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Drug> DrugTypes { get; set; }
         public List<PharmacyStore> PharmacyStores { get; set; }
         public Address Address { get; set; }
         public List<Drug> Drugs { get; set; }
