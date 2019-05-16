@@ -13,7 +13,7 @@ class auth extends React.Component {
             email: {
                 elementConfig:{
                     type: 'email',
-                    placeholder: 'Adres email',
+                    placeholder: 'Email Address',
                 },
                 value: '',
                 validation: {
@@ -25,7 +25,7 @@ class auth extends React.Component {
             password: {
                 elementConfig:{
                     type: 'password',
-                    placeholder: 'Hasło',
+                    placeholder: 'Password',
                 },
                 value: '',
                 validation: {
