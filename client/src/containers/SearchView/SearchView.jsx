@@ -33,9 +33,7 @@ export class SearchView extends React.Component {
             desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders.",
             rating: 3.5,
             opinionsNumber: 71,
-            tag1: "allergy",
-            tag2: "breathing",
-            tag3: "skin",
+            tags: ["allergy", "breathing", "skin"],
             image: "",
         }});
 
@@ -168,7 +166,7 @@ export class SearchView extends React.Component {
                         location={this.state.query.location}
                         history={this.props.history}
                     />}
-                    <Description drugInfo={this.state.drugDescrition}/>
+                    <Description drugInfo={this.state.drugDescrition} tags={this.state.drugDescrition.tags}/>
                     <PricesList data={this.state.data}/>
                 </Card>
             </div>

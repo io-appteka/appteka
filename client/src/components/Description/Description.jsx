@@ -3,7 +3,7 @@ import styles from './Description.css';
 import {Rating} from '../UI/Rating/Rating';
 import {Tag} from '../UI/Tag/Tag';
 
-export const Description = ({drugInfo}) => (
+export const Description = ({drugInfo, tags}) => (
     <div className={styles.Description}>
         <img src={drugInfo.image} alt="Drug"/>
         <h1>{drugInfo.name}</h1>
@@ -13,10 +13,6 @@ export const Description = ({drugInfo}) => (
         <span>({drugInfo.opinionsNumber} opinions)</span>
 
         <p>{drugInfo.desc}</p>
-        <Tag children={drugInfo.tag1}/>
-        <Tag children={drugInfo.tag2}/>
-        <Tag children={drugInfo.tag3}/>
+        {tags.map(tag => <Tag key={tag}>tag</Tag>)}
     </div>
 );
-
-// {drugInfo.tags.map(tag => <Tag children={tag}/>)}
