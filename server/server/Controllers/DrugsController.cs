@@ -20,16 +20,16 @@ namespace server.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<Drug>> Get()
         {
             return _context.Drugs;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Drug> Get([FromQuery] int id)
+        [HttpGet("")]
+        public ActionResult<Drug> GetById([FromQuery] int id)
         {
-            return _context.Drugs.FirstOrDefault(d => d.Id == id);
+            
         }
 
         [HttpPost]

@@ -13,7 +13,7 @@ namespace server.tests
         [InlineData("nowy lek")]
         [InlineData("Jakis tam")]
         [InlineData("Inny")]
-        public void IsDrugValid_ShouldSuccess(string name)
+        public void IsDrugValid_ShouldSuccessValidName(string name)
         {
             Drug drug = new Drug()
             {
@@ -28,8 +28,9 @@ namespace server.tests
         [InlineData("")]
         [InlineData(" ")]
         [InlineData("  ")]
+        [InlineData(" sadaw")]
 
-        public void IsDrugValid_ShouldFail(string name)
+        public void IsDrugValid_ShouldFailInvalidName(string name)
         {
             Drug drug = new Drug()
             {
