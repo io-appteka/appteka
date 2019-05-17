@@ -34,8 +34,8 @@ export class StartPage extends React.Component {
     render() {
         return(
             <div className={styles.MainPage}>
-                <div className={styles.Header}>No more overpriced meds, find them cheap nearby</div>
-                <div className={styles.SmallHeader}>Let's try to bring something which is not mixed with the world</div>
+                <div className={styles.Header}>Find the cheapest medicines in Your neighbourhood!</div>
+                <div className={styles.SmallHeader}>Do you wanna buy some meds but your bank account is almost empty? Don't worry, You can find cheapest meds with this App! Just type a drug name or tag below</div>
             <FirstSearch
                 data={this.state.drugList}
                 onClick={this.clickHandler}
