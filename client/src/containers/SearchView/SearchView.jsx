@@ -156,12 +156,14 @@ export class SearchView extends React.Component {
     render() {
         return (
             <div className={styles.SearchView}>
+                <div className={styles.SearchField}>
+                {this.state.isInput && <SearchField
+                    drug={this.state.query.drug}
+                    location={this.state.query.location}
+                    history={this.props.history}
+                />}
+                </div>
                 <Card>
-                    {this.state.isInput && <SearchField
-                        drug={this.state.query.drug}
-                        location={this.state.query.location}
-                        history={this.props.history}
-                    />}
                     <DrugDescription drugInfo={this.state.drugDescrition}/>
                     <PricesList data={this.state.data}/>
                 </Card>

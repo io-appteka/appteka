@@ -4,6 +4,7 @@
     height: calc(100vh - 92px);
     width: 65%;
     left: 50%;
+    margin-top: 5%;
     margin-right: 38%;
     transform: translate(-50%,0);
     background: #FFFFFF;
