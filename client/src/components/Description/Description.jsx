@@ -13,6 +13,6 @@ export const Description = ({drugInfo, tags}) => (
         <span>({drugInfo.opinionsNumber} opinions)</span>
 
         <p>{drugInfo.desc}</p>
-        {tags.map(tag => <Tag key={tag}>tag</Tag>)}
+        {tags && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
     </div>
 );
