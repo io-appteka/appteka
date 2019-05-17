@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '../../components/Card/Card';
 import styles from './SearchView.css';
 import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
-import { DrugDescription } from '../../components/DrugDescription/DrugDescription';
+import { Description } from '../../components/Description/Description';
 import { PricesList } from '../../components/Lists/PricesList/PricesList';
 
 export class SearchView extends React.Component {
@@ -29,14 +29,18 @@ export class SearchView extends React.Component {
 
         //fetching data from server about drug description - name sent -> description received
         this.setState({drugDescrition: {
-            name:"Prednisone",
-            desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders. Prednisone belongs to a class of drugs known as corticosteroids. It decreases your immune system's response to various diseases to reduce symptoms such as swelling and allergic-type reactions.",
+            name: "Prednisone",
+            desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders.",
+            rating: 3.5,
+            opinionsNumber: 71,
+            tags: ["allergy", "breathing", "skin"],
+            image: "",
         }});
 
         //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId and list of locations) received (should be sorted!)
         //list of locations
         //list of 3 nearest pharmacies to provided location
-            //address 
+            //address
             //distance - in kilometers
             //pharmacyStoreId - unique ID
         this.setState({
@@ -162,7 +166,7 @@ export class SearchView extends React.Component {
                         location={this.state.query.location}
                         history={this.props.history}
                     />}
-                    <DrugDescription drugInfo={this.state.drugDescrition}/>
+                    <Description drugInfo={this.state.drugDescrition} tags={this.state.drugDescrition.tags}/>
                     <PricesList data={this.state.data}/>
                 </Card>
             </div>
