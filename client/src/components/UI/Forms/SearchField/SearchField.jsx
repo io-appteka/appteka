@@ -2,13 +2,16 @@ import React from 'react';
 import styles from './SearchField.css';
 import { Input, Button } from 'antd';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 export class SearchField extends React.Component {
     state = {
         searchForm: {
             drug: {
                 elementConfig: {
                     defaultValue: this.props.drug,
-                    placeholder: 'nazwa leku',
+                    placeholder: 'Nazwa leku',
+                    prefix: <FontAwesomeIcon icon="search"></FontAwesomeIcon>
                 },
                 value: this.props.drug,
                 validation: {
@@ -19,7 +22,8 @@ export class SearchField extends React.Component {
             location: {
                 elementConfig: {
                     defaultValue: this.props.location,
-                    placeholder: 'lokalizacja',
+                    placeholder: 'Lokalizacja',
+                    prefix: <FontAwesomeIcon icon="map-marker-alt"></FontAwesomeIcon>
                 },
                 value: this.props.location,
                 validation: {

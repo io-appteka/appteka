@@ -12,6 +12,11 @@ import { Auth } from './containers/Auth/Auth';
 import { Logout } from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSearch, faMapMarkerAlt);
+
 class App extends Component {
   componentDidMount(){
     this.props.onTryAutoSingup();

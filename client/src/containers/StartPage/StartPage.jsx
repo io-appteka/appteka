@@ -34,8 +34,8 @@ export class StartPage extends React.Component {
     render() {
         return(
             <div className={styles.MainPage}>
-                <div className={styles.Header}>No more overpriced sheeeit, find cheap meds nearby</div>
-                <div className={styles.SmallHeader}>Sheit, man, that honkey mus' be messin' my old lady got to be runnin' col' upsihd down his head!</div>
+                <div className={styles.Header}>No more overpriced meds, find them cheap nearby</div>
+                <div className={styles.SmallHeader}>Let's try to bring something which is not mixed with the world</div>
             <FirstSearch
                 data={this.state.drugList}
                 onClick={this.clickHandler}
