@@ -4,5 +4,6 @@ import styles from './Rating.css';
 
 export const Rating = ({value}) => (
     <div className={styles.Rating}>
-    <Rate prefixCls={'index__ant-rate'} disabled allowHalf defaultValue={value}/>
-    </div>);
+        <Rate prefixCls={'index__ant-rate'} disabled allowHalf defaultValue={0} value={value}/>
+    </div>
+);
