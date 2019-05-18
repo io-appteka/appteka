@@ -1,6 +1,7 @@
 @import '../../../../node_modules/antd/es/rate/style/index.css';
 
 .Rating {
+    display: inline-block;
 }
 
 .Rating :global(.index__ant-rate) {
