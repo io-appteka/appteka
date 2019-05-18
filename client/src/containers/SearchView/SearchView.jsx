@@ -156,7 +156,7 @@ export class SearchView extends React.Component {
     render() {
         return (
             <div className={styles.SearchView}>
-                <div className={styles.SearchField}>
+                <div className={styles.Form}>
                 {this.state.isInput && <SearchField
                     drug={this.state.query.drug}
                     location={this.state.query.location}
