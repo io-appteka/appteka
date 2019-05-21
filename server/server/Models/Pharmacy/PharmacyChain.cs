@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace server.Models
 {
-    public class PharmacyChain : ISearchable
+    public class PharmacyChain
     {
         public int Id { get; set; }
         public string Name { get; set; }

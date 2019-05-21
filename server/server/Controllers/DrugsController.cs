@@ -13,23 +13,29 @@ namespace server.Controllers
     public class DrugsController : ControllerBase
     {
         private ApptekaDbContext _context;
+        private DrugCRUDProvider _crudProvider;
+
         public DrugsController(ApptekaDbContext context)
         {
             DbInitializer.Initialize(context);
+            _crudProvider = new DrugCRUDProvider(context);
             _context = context;
         }
         // GET api/values
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<Drug>> Get()
         {
-            return _context.Drugs;
+            var drugs = _crudProvider.GetAll();
+            var result = new ActionResult<IEnumerable<Drug>>(drugs);
+            return result;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Drug> Get([FromQuery] int id)
         {
-            return "value";
+            var drug = _crudProvider.Get(id);
+            return drug;
         }
 
         // POST api/values

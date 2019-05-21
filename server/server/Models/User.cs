@@ -12,5 +12,6 @@ namespace server.Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
+        public EntityType EntityType { get; } = EntityType.User;
     }
 }

@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace server.Models
 {
-    public interface ISearchable
+    public enum EntityType
     {
-        EntityType EntityType { get; }
+        Drug,
+        User,
+        DrugOpinion,
+        PharmacyStoreOpinion,
+        PharmacyStore
     }
 }

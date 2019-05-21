@@ -9,5 +9,6 @@ namespace server.Models
     {
         public int Id { get; set; }
         public PharmacyChain PharmacyChain { get; set; }
+        public EntityType EntityType { get; } = EntityType.PharmacyStore;
     }
 }

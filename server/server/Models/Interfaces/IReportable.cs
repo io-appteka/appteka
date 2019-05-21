@@ -7,5 +7,7 @@ namespace server.Models
 {
     public interface IReportable
     {
+        int Id { get; set; }
+        string GetDetails();
     }
 }
