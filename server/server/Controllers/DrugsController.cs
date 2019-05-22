@@ -34,14 +34,15 @@ namespace server.Controllers
         [HttpGet("{id}")]
         public ActionResult<Drug> Get([FromQuery] int id)
         {
-            var drug = _crudProvider.Get(id);
+            var drug = _crudProvider.GetDrug(id);
             return drug;
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Drug drug)
         {
+            _crudProvider.AddDrug(drug);
         }
 
         // PUT api/values/5

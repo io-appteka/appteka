@@ -20,7 +20,7 @@ namespace server.Models
             return _context.Drugs;
         }
 
-        public Drug Get(int id)
+        public Drug GetDrug(int id)
         {
             Drug drug = _context
                         .Drugs
@@ -28,5 +28,13 @@ namespace server.Models
 
             return drug;
         }
+
+        public void AddDrug(Drug drug)
+        {
+            _context.Drugs.Add(drug);
+            _context.SaveChanges();
+        }
+
+
     }
 }

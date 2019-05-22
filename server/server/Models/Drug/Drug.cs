@@ -16,5 +16,6 @@ namespace server.Models
 
         public List<Ingredient> Ingredients { get; set; }
         public List<Opinion> Opinions { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }

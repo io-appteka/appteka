@@ -32,6 +32,14 @@ namespace server.Data
             model.Entity<PharmacyStoreOpinion>().ToTable("PharmacyStoreOpinion");
             model.Entity<PharmacyChain>().ToTable("PharmacyChain");
             model.Entity<PharmacyStore>().ToTable("PharmacyStore");
+
+            model.Entity<Tag>().ToTable("Tag");
+            model.Entity<Drug_Tag>()
+                .ToTable("Drug_Tag")
+                .HasKey(dt => new { dt.DrugId, dt.TagId });
+            //model.Entity<Drug_Tag>()
+            //    .HasOne(dt => dt.Drug)
+            //    .WithMany(d => d.Tags);
         }
     }
 }
