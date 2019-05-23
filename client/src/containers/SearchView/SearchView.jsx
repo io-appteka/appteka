@@ -12,7 +12,7 @@ export class SearchView extends React.Component {
             location: 'Krakow, Poland',
         },
         isInput: false,
-        drugDescrition: {
+        drugDescription: {
             name: null,
             desc: null,
         },
@@ -28,7 +28,7 @@ export class SearchView extends React.Component {
         this.setState({query: queryContent, isInput: true});
 
         //fetching data from server about drug description - name sent -> description received
-        this.setState({drugDescrition: {
+        this.setState({drugDescription: {
             name: "Prednisone",
             desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders.",
             rating: 3.5,
@@ -168,7 +168,7 @@ export class SearchView extends React.Component {
                     />}
                 </div>
                 <Card>
-                    <Description drugInfo={this.state.drugDescrition} tags={this.state.drugDescrition.tags}/>
+                    <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
                     <PricesList data={this.state.data}/>
                 </Card>
             </div>
