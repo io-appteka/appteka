@@ -1,7 +1,7 @@
 .Card {
     position: absolute;
-    padding: 20px 40px 0 40px ;
-    height: calc(100vh - 156px);
+    padding: 0 40px 0 40px ;
+    height: calc(100vh - 136px);
     width: 65%;
     left: 50%;
     top: 136px;
@@ -17,5 +17,5 @@
 
 @-webkit-keyframes expand{
     0%{top:100vh; height: 0;}
-    100%{top: 136px; height: calc(100vh - 156px);}
+    100%{top: 136px; height: calc(100vh - 136px);}
 }
