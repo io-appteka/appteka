@@ -5,5 +5,6 @@
 }
 
 .Rating :global(.index__ant-rate) {
-    color: #77D9EE;
+    color: #FF53BA;
+    /*color: #77D9EE;*/
 }

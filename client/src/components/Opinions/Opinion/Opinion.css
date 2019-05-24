@@ -1,52 +1,41 @@
-.LocationItem {
-    font-size: 18px;
-    line-height: 22px;
-    padding: 10px 0 10px 0;
+.Opinion {
+    padding: 20px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-.LocationItem svg {
-    color: #FF53BA;
-    padding-right: 10px;
+.Opinion /*:not(:last-child)*/{
+    border-bottom: 1px solid #C5C5C5;
 }
 
-.Address {
-    display: inline-block;
-    position: relative;
-    width: 260px;
+.Author {
+    font-weight: bold;
+    font-size: 20px;
     color: rgba(0, 0, 0, 0.74);
+    margin-bottom: 10px;
 }
 
-.Address span {
-    position: relative;
-    padding-right: 10px;
+.Rating {
+    float: right;
 }
 
-.Address span::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.47);
-    width: calc(250px - 100%);
-    left: 100%;
-    top: 12px;
-  }
-
-.Distance {
+.Date {
     display: inline-block;
-    color: rgba(0, 0, 0, 0.47);
+    font-size: 12px;
 }
 
-.Link {
-    margin-left: 20px;
-    outline: none;
-    background: transparent;
-    border: none;
-    font: inherit;
+.FlexBox {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7px;
+    padding-top: 7px;
+}
+
+.ReportLink {
     font-size: 14px;
     line-height: 17px;
-    color: #FF53BA;
     display: flex;
-    text-decoration-line: underline;
-    cursor: pointer;
+    color: rgba(0, 0, 0, 0.25);
+    margin-right: 10px;   
 }

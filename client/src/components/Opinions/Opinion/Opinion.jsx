@@ -1,24 +1,19 @@
 import React from 'react';
 import styles from './Opinion.css';
-import { Icon } from 'antd';
-import { withRouter } from "react-router"
+import { Rating } from '../../UI/Rating/Rating';
 
-const opinion = ({info, history}) => {
-    const onClickHandler = () => {
-        const queryString = `id=${encodeURIComponent(info.pharmacyStoreId)}`;
-        history.push({
-            pathname: '/store',
-            search: '?' + queryString,
-        });
-    }
+export class Opinion extends React.Component {
 
-    return(
-    <li className={styles.Opinion}>
-        <Icon type="environment" />
-        <div className={styles.Address}><span>{info.address}</span></div>
-        <div className={styles.Distance}><span>{info.distance} km</span></div>
-        <button className={styles.Link} onClick={onClickHandler}>Dodaj opinię</button>
-    </li>
-)};
+    render(){
+        const { author, date, text, rating } = this.props;
 
-export const Opinion = withRouter(opinion);
+        return (
+            <li className={styles.Opinion}>
+                <div className={styles.Date}>{date}</div>
+                <div className={styles.Rating}><Rating value={rating}/></div>
+                <div className={styles.Author}>{author}</div>
+                <div className={styles.FlexBox}>{text}</div>
+            </li>
+        );
+    };
+};
