@@ -4,12 +4,14 @@ import styles from './SearchView.css';
 import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { Description } from '../../components/Description/Description';
 import { PricesList } from '../../components/Lists/PricesList/PricesList';
+import  Opinions  from '../../components/Opinions/Opinions';
 
 export class SearchView extends React.Component {
     state = {
         query: {
             drug: null,
             location: 'Krakow, Poland',
+            opinion: null,
         },
         isInput: false,
         drugDescription: {
@@ -17,6 +19,7 @@ export class SearchView extends React.Component {
             desc: null,
         },
         data: [],
+        opinions: [],
     }
 
     componentDidMount() {
@@ -37,14 +40,31 @@ export class SearchView extends React.Component {
             image: "",
         }});
 
+        //fetching data from server about drug opinion - name sent -> opinion received
+        this.setState({opinions: [
+                {
+                    opinionId: 'd45h3',
+                    author: 'Pierwszy',
+                    date: '23-05-2019',
+                    text: 'Moja pierwsza opinia, bardzo duzo tekstu aby zrobic dobry test, lets see, lets take even more words to insert into a comment!!!',
+                    rating: 3.5,
+                },
+                {
+                    opinionId: '3f45g',
+                    author: 'Drugi',
+                    date: '24-05-2019',
+                    text: 'Moja druga opinia, this can be short.',
+                    rating: 4,
+                },
+            ]});
+
         //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId and list of locations) received (should be sorted!)
         //list of locations
         //list of 3 nearest pharmacies to provided location
             //address
             //distance - in kilometers
             //pharmacyStoreId - unique ID
-        this.setState({
-    data: [
+        this.setState({data: [
             {
                 pharmacyName: 'Ziko',
                 price: '14.99',
@@ -160,6 +180,9 @@ export class SearchView extends React.Component {
     render() {
         return (
             <div className={styles.SearchView}>
+                {/*<Card>*/}
+                    {/*<Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/>*/}
+                {/*</Card>*/}
                 <div className={styles.Form}>
                     {this.state.isInput && <SearchField
                         drug={this.state.query.drug}

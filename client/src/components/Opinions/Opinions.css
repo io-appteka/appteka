@@ -1,6 +1,48 @@
-.LocationList {
+.Opinions {
+    border: 1px solid #C5C5C5;
     margin: 0;
     padding: 0;
     list-style: none;
-    padding-top: 20px;
+    overflow: scroll;
+    height: calc(100vh - 280px);
+}
+
+.OpinionCount {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.Button {
+    margin-bottom: 15px;
+    display:inline-block;
+}
+.Button button {
+     /*text-transform: uppercase;*/
+     outline: none;
+     border: 1px solid transparent;
+     background: #FF53BA;
+     border-radius: 10px;
+     font: inherit;
+     font-weight: bold;
+     font-size: 14px;
+     color: #ffffff;
+     padding: 1px 10px;
+     margin-left: 0px;
+     width: 160px;
+     height: 37px;
+     box-sizing: border-box;
+ }
+.Button button:disabled {
+    cursor: not-allowed !important;
+}
+
+.Button button:not(:disabled):hover {
+    background: #FF53BA;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+.Sort {
+    float: right;
 }
