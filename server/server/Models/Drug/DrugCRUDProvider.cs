@@ -1,4 +1,5 @@
-﻿using server.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using server.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,20 @@ namespace server.Models
 
         public IEnumerable<Drug> GetAll()
         {
-            return _context.Drugs;
+
+            List<Drug> drugs = _context.Drugs
+                              .Include(d => d.Drugs_Tags)
+                                  .ThenInclude(dt => dt.Tag)
+                              .ToList();
+            return drugs;
         }
 
         public Drug GetDrug(int id)
         {
-            Drug drug = _context
-                        .Drugs
+            Drug drug = _context.Drugs
+                        .Include(d => d.Drugs_Tags)
+                            .ThenInclude(dt => dt.Tag)
                         .FirstOrDefault(d => d.Id == id);
-
             return drug;
         }
 

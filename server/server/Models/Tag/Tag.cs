@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace server.Models
     {
         public int Id { get; set; }
         public string Value { get; set; }
+        [JsonIgnore]
+        public List<Drug_Tag> Drugs_Tags { get; set; }
     }
 }

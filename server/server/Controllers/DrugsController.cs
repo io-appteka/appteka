@@ -31,7 +31,7 @@ namespace server.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet()]
         public ActionResult<Drug> Get([FromQuery] int id)
         {
             var drug = _crudProvider.GetDrug(id);

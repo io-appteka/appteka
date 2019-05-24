@@ -17,10 +17,15 @@ namespace server.Data
         public DbSet<Drug> Drugs { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<PharmacyChainDrug> PharmacyChainDrugs { get; set; }
+
         public DbSet<DrugOpinion> DrugOpinions { get; set; }
         public DbSet<PharmacyStoreOpinion> PharmacyStoreOpinions { get; set; }
+
         public DbSet<PharmacyChain> PharmacyChains { get; set; }
         public DbSet<PharmacyStore> PharmacyStores { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Drug_Tag> Drugs_Tags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder model)
         {
@@ -33,13 +38,20 @@ namespace server.Data
             model.Entity<PharmacyChain>().ToTable("PharmacyChain");
             model.Entity<PharmacyStore>().ToTable("PharmacyStore");
 
-            model.Entity<Tag>().ToTable("Tag");
+            model.Entity<Tag>()
+                .ToTable("Tag")
+                /*.HasIndex(t => t.Value)*/;
             model.Entity<Drug_Tag>()
                 .ToTable("Drug_Tag")
                 .HasKey(dt => new { dt.DrugId, dt.TagId });
-            //model.Entity<Drug_Tag>()
-            //    .HasOne(dt => dt.Drug)
-            //    .WithMany(d => d.Tags);
+            model.Entity<Drug_Tag>()
+                .HasOne(dt => dt.Drug)
+                .WithMany(d => d.Drugs_Tags)
+                .HasForeignKey(dt => dt.TagId);
+            model.Entity<Drug_Tag>()
+                .HasOne(dt => dt.Tag)
+                .WithMany(t => t.Drugs_Tags)
+                .HasForeignKey(dt => dt.DrugId);
         }
     }
 }

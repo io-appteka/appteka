@@ -2,7 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace server.Models
 {
@@ -16,6 +17,13 @@ namespace server.Models
 
         public List<Ingredient> Ingredients { get; set; }
         public List<Opinion> Opinions { get; set; }
-        public List<Tag> Tags { get; set; }
+        [JsonIgnore]
+        public List<Drug_Tag> Drugs_Tags { get; set; }
+        [NotMapped]
+        public List<Tag> Tags
+        {
+            get => Drugs_Tags.Select(dt => dt.Tag).ToList();
+            private set { }
+        }
     }
 }
