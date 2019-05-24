@@ -6,13 +6,17 @@ import {Tag} from '../UI/Tag/Tag';
 export const Description = ({drugInfo, tags}) => (
     <div className={styles.Description}>
         <img src={drugInfo.image} alt="Drug"/>
-        <h1>{drugInfo.name}</h1>
+        <div className={styles.DescriptionContent}>
+            <h1>{drugInfo.name}</h1>
 
-        <Rating value={drugInfo.rating}/>
-        <span>{drugInfo.rating}</span>
-        <span>({drugInfo.opinionsNumber} opinions)</span>
+            <Rating value={drugInfo.rating}/>
+            <span>{drugInfo.rating}</span>
+            <span>({drugInfo.opinionsNumber} opinions)</span>
 
-        <p>{drugInfo.desc}</p>
-        {tags && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+            <p>{drugInfo.desc}</p>
+            <div className={styles.Tags}>
+                {tags && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+            </div>
+        </div>
     </div>
 );
