@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './StartPage.css';
 import { FirstSearch } from '../../components/UI/Forms/FirstSearch/FirstSearch';
+import graphic from '../../media/main-page-graphic.png';
 
 export class StartPage extends React.Component {
     state = {
@@ -34,6 +35,7 @@ export class StartPage extends React.Component {
     render() {
         return(
             <div className={styles.MainPage}>
+                <img className={styles.Graphic} src={graphic} alt="pharmacy buildings"/>
                 <div className={styles.Header}>Find the cheapest medicines in Your neighbourhood!</div>
                 <div className={styles.SmallHeader}>Do you wanna buy some meds but your bank account is almost empty? Don't worry, You can find cheapest meds with this App! Just type a drug name or tag below</div>
             <FirstSearch
