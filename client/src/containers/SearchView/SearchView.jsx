@@ -19,7 +19,11 @@ export class SearchView extends React.Component {
             desc: null,
         },
         data: [],
-        opinions: [],
+        opinions: {
+            opinionsNumber: 0,
+            opinions: [],
+        },
+        isOpinionsLoaded: false,
     }
 
     componentDidMount() {
@@ -41,7 +45,9 @@ export class SearchView extends React.Component {
         }});
 
         //fetching data from server about drug opinion - name sent -> opinion received
-        this.setState({opinions: [
+        this.setState({ opinions: {
+            opinionsNumber: 71,
+            opinions: [
                 {
                     opinionId: 'd45h3',
                     author: 'Pierwszy',
@@ -59,11 +65,11 @@ export class SearchView extends React.Component {
                 {
                     opinionId: '4589347',
                     author: 'Trzeci',
-                    date: '24-05-2019',
+                    date: '25-05-2019',
                     text: 'Moja druga opinia, this can be short.',
-                    rating: 4,
+                    rating: 1,
                 },
-            ]});
+            ]}}, () => this.setState({isOpinionsLoaded: true}));
 
         //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId and list of locations) received (should be sorted!)
         //list of locations
@@ -197,7 +203,7 @@ export class SearchView extends React.Component {
                 </div>
                 <Card>
                     <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    {/* <Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/> */}
+                    {/* {this.state.isOpinionsLoaded && <Opinions opinions={this.state.opinions}/>} */}
                     <PricesList data={this.state.data}/>
                 </Card>
             </div>

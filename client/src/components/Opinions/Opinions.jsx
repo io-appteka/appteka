@@ -7,6 +7,14 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 class Opinions extends React.Component {
+    state = {
+        opinionList : [],
+        mode: 'highest',
+    }
+
+    componentDidMount() {
+        this.sortByRating(this.props.opinions.opinions);
+    }
 
     onClickHandler = () => {
         // const {searchForm} = '';
@@ -22,14 +30,25 @@ class Opinions extends React.Component {
         this.props.onSetRedirectPath('/add-opinion');
     };
 
-    sortByRating = () => {
-        const {opinions} = this.props.opinions.opinion.rating;
-        opinions.sort((a, b) => a - b).reverse();
-        this.setProps({ opinions });
+    sortByRating = (opinionList) => {
+        const { mode } = this.state;
+        const sortedOpinions = opinionList.sort((firstOpinion, secondOpinion) => {
+            if (mode === 'lowest') return firstOpinion.rating - secondOpinion.rating;
+            else if (mode === 'highest') return secondOpinion.rating - firstOpinion.rating;
+            else return 0;
+            });
+        this.setState({opinionList: sortedOpinions});
     };
 
-    render() {
+    toggleSortingMode = () => {
+        const { mode } = this.state;
+        if (mode === 'highest') this.setState({mode: 'lowest'},() => this.sortByRating(this.state.opinionList));
+        else this.setState({mode: 'highest'},() => this.sortByRating(this.state.opinionList));
+    }
 
+    render() {
+        const { opinionsNumber } = this.props.opinions;
+        const { opinionList } = this.state;
         return (
             <div className={styles.OpinionsField}>
                 <div className={styles.Button}>
@@ -39,13 +58,15 @@ class Opinions extends React.Component {
                     </NavLink>
                 </div>
                 <div className={styles.OpinionCount}>
-                    <b>{this.props.desc.opinionsNumber}</b> user(s) rated this product
+                    <b>{opinionsNumber}</b> user(s) rated this product
                     <div className={styles.Sort}>
-                        SORT BY:<button onClick={this.sortByRating}>HIGHEST RATING</button>
+                        SORT BY:<button onClick={this.toggleSortingMode}>{this.state.mode === 'highest' 
+                            ? 'HIGHEST RATING'
+                            : 'LOWEST RATING'}</button>
                     </div>
                 </div>
                 <ul className={styles.Opinions}>
-                    {this.props.opinions.map(opinion => (
+                    {opinionList.map(opinion => (
                         <Opinion
                             key={opinion.opinionId}
                             author={opinion.author}
