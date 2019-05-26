@@ -23,7 +23,7 @@ namespace server.Models
         public List<Tag> Tags
         {
             get => Drugs_Tags.Select(dt => dt.Tag).ToList();
-            private set { }
+            set { }
         }
     }
 }
