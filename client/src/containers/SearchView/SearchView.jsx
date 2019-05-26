@@ -197,8 +197,8 @@ export class SearchView extends React.Component {
                 </div>
                 <Card>
                     <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    <Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/>
-                    {/* <PricesList data={this.state.data}/> */}
+                    {/* <Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/> */}
+                    <PricesList data={this.state.data}/>
                 </Card>
             </div>
         );
