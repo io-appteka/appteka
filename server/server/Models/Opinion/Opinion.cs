@@ -11,7 +11,6 @@ namespace server.Models
         public User Author { get; set; }
         public string Text { get; set; }
         public int Rating { get; set; }
-        public EntityType EntityType { get; set; }
-        //public IReportable ReportedEntity { get; set; }
+        public DateTime Date { get; set; }
     }
 }
