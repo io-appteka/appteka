@@ -3,8 +3,3 @@
 .Rating {
     display: inline-block;
 }
-
-.Rating :global(.index__ant-rate) {
-    color: #FF53BA;
-    /*color: #77D9EE;*/
-}

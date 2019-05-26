@@ -151,7 +151,8 @@ export class SearchView extends React.Component {
                         distance: 1.33,
                         pharmacyStoreId: 'f409urq3ie',
                     },
-                ],},
+                ],
+            },
             {
                 pharmacyName: 'Super-Pharm',
                 price: '26.39',
@@ -180,9 +181,6 @@ export class SearchView extends React.Component {
     render() {
         return (
             <div className={styles.SearchView}>
-                {/*<Card>*/}
-                    {/*<Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/>*/}
-                {/*</Card>*/}
                 <div className={styles.Form}>
                     {this.state.isInput && <SearchField
                         drug={this.state.query.drug}
@@ -192,7 +190,8 @@ export class SearchView extends React.Component {
                 </div>
                 <Card>
                     <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    <PricesList data={this.state.data}/>
+                    <Opinions desc={this.state.drugDescription} opinions={this.state.opinions}/>
+                    {/* <PricesList data={this.state.data}/> */}
                 </Card>
             </div>
         );
