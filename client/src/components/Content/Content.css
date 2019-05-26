@@ -1,0 +1,39 @@
+.Content {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #C5C5C5;
+    font-size: 1.1em;
+    
+}
+
+.Content ul{
+    padding-left: 20px;
+}
+
+.Content ul li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 35px;
+    margin-left: 0;
+}
+
+.Content ul li:hover{
+    color: #43BBD6;
+    border-bottom: 2px solid #43BBD6;
+}
+
+.Content button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.Content .current {
+   color: #43BBD6;
+   border-bottom: 2px solid #43BBD6; 
+}
+
+
