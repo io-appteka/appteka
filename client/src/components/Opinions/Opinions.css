@@ -1,6 +1,6 @@
 .OpinionsField {
     overflow: scroll;
-    height: calc(100vw - 810px);
+    height: calc(100vh - 400px);
 }
 
 .OpinionsField::-webkit-scrollbar { 
