@@ -41,6 +41,11 @@ namespace server.Models
             _context.SaveChanges();
         }
 
-
+        public void DeleteDrug(int id)
+        {
+            Drug drug = _context.Drugs.FirstOrDefault(d => d.Id == id);
+            _context.Drugs.Remove(drug);
+            _context.SaveChanges();
+        }
     }
 }

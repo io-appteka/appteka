@@ -21,7 +21,7 @@ namespace server.Controllers
             _crudProvider = new DrugCRUDProvider(context);
             _context = context;
         }
-        // GET api/values
+
         [HttpGet("all")]
         public ActionResult<IEnumerable<Drug>> Get()
         {
@@ -30,31 +30,28 @@ namespace server.Controllers
             return result;
         }
 
-        // GET api/values/5
-        [HttpGet()]
+        [HttpGet]
         public ActionResult<Drug> Get([FromQuery] int id)
         {
             var drug = _crudProvider.GetDrug(id);
             return drug;
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody] Drug drug)
         {
             _crudProvider.AddDrug(drug);
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _crudProvider.DeleteDrug(id);
         }
     }
 }
