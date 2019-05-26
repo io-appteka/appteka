@@ -4,12 +4,16 @@ import { Opinion } from './Opinion/Opinion';
 import { Button } from 'antd';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { AddOpinion } from './AddOpinion/AddOpinion';
 
 class Opinions extends React.Component {
     state = {
         opinionList : [],
         mode: 'highest',
+        modal: {
+            show: false,
+            loading: false,
+        },
     }
 
     componentDidMount() {
@@ -17,24 +21,22 @@ class Opinions extends React.Component {
     }
 
     onClickHandler = () => {
-        // const {searchForm} = '';
-        // const {history} = '';
-        // let queryString = '';
-        // for (let key in searchForm) {
-        //     queryString += `${queryString ? '&' : ''}${key}=${encodeURIComponent('')}`;
-        // }
-        // history.push({
-        //     pathname: '/listing',
-        //     search: '?' + queryString,
-        // });
-        this.props.onSetRedirectPath('/add-opinion');
+        this.setState((prevState) => ({modal: {...prevState.modal, show: true}}));
     };
+
+    onOkHandler = () => {
+        //async
+        //posting to the server
+        this.setState((prevState) => ({modal: {...prevState.modal, loading: true}}));
+    }
+
+    onCancelHandler = () => this.setState({modal: {loading: false, show: false}});
 
     sortByRating = (opinionList) => {
         const { mode } = this.state;
         const sortedOpinions = opinionList.sort((firstOpinion, secondOpinion) => {
-            if (mode === 'lowest') return firstOpinion.rating - secondOpinion.rating;
-            else if (mode === 'highest') return secondOpinion.rating - firstOpinion.rating;
+            if (mode === 'highest') return firstOpinion.rating - secondOpinion.rating;
+            else if (mode === 'lowest') return secondOpinion.rating - firstOpinion.rating;
             else return 0;
             });
         this.setState({opinionList: sortedOpinions});
@@ -48,14 +50,15 @@ class Opinions extends React.Component {
 
     render() {
         const { opinionsNumber } = this.props.opinions;
-        const { opinionList } = this.state;
+        const { opinionList, modal } = this.state;
         return (
             <div className={styles.OpinionsField}>
                 <div className={styles.Button}>
-                    <NavLink onClick={this.onClickHandler}
-                             to='/auth'>
-                        <Button>Dodaj opinię</Button>
-                    </NavLink>
+                    { this.props.isAuthenticated && <Button onClick={this.onClickHandler}>Dodaj opinię</Button>}
+                    <AddOpinion
+                    modal={modal}
+                    onCancelHandler={this.onCancelHandler}
+                    onOkHandler={this.onOkHandler}/>
                 </div>
                 <div className={styles.OpinionCount}>
                     <b>{opinionsNumber}</b> user(s) rated this product
