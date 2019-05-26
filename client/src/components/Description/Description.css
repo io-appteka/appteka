@@ -1,5 +1,5 @@
 .Description {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 .Description h1 {
@@ -31,4 +31,11 @@
 .Description span:nth-of-type(2) {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.47);
+}
+
+.Tags {
+    height: 100%;
+}
+.DescriptionContent {
+    height: 200px;
 }

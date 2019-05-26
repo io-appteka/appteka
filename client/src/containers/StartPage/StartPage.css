@@ -1,20 +1,28 @@
 
 .MainPage {
+    overflow: hidden;
+}
 
+.Graphic {
+    width: 65vw;
+    margin-top: 10px;
+    margin-right: -10%;
+    float: right;
+    shape-outside: polygon(60% 0, 100% 50%, 60% 100%, 1% 55%, 1% 47%);
 }
 
 .Header {
-    width: 760px;
+    width: 45%;
     height: 97px;
     margin-left: 64px;
-    padding-top: 150px;
+    padding-top: 80px;
     font-style: normal;
     font-weight: 800;
-    font-size: 48px;
+    font-size: 36px;
     line-height: normal;
 }
 
 .SmallHeader {
-    width: 523px;
-    padding: 50px 64px;
+    padding: 40px 64px;
+    line-height: 30px;
 }

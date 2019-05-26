@@ -14,13 +14,14 @@
 
 .Logo {
     position: absolute;
-    margin-left: 39%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding-top: 20px;
     font-style: normal;
     font-weight: 900;
     font-size: 28px;
     line-height: normal;
-    text-align: center;
 }
 
 .Toolbar nav {
