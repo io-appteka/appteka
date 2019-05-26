@@ -56,6 +56,13 @@ export class SearchView extends React.Component {
                     text: 'Moja druga opinia, this can be short.',
                     rating: 4,
                 },
+                {
+                    opinionId: '4589347',
+                    author: 'Trzeci',
+                    date: '24-05-2019',
+                    text: 'Moja druga opinia, this can be short.',
+                    rating: 4,
+                },
             ]});
 
         //fetching data from server drugName + location sent -> list of found pharmacies (with prices and pharmacyChainId and list of locations) received (should be sorted!)

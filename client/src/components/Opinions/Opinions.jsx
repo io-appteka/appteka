@@ -31,7 +31,7 @@ class Opinions extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className={styles.OpinionsField}>
                 <div className={styles.Button}>
                     <NavLink onClick={this.onClickHandler}
                              to='/auth'>
