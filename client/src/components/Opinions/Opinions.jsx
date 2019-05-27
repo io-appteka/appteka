@@ -14,21 +14,31 @@ class Opinions extends React.Component {
             show: false,
             loading: false,
         },
-    }
+    };
 
     componentDidMount() {
         this.sortByRating(this.props.opinions.opinions);
-    }
+    };
 
     onClickHandler = () => {
         this.setState((prevState) => ({modal: {...prevState.modal, show: true}}));
     };
 
-    onOkHandler = () => {
+    onOkHandler = (data) => {
         //async
         //posting to the server
-        this.setState((prevState) => ({modal: {...prevState.modal, loading: true}}));
-    }
+        //co potrzebujemy do posta?
+        //userId - redux store
+        //ocena i opinie - data z funkcji - opinia mozna wywolac trim zeby obciac spacje
+        //idLeku -> musimy brac z comp. searchview
+        if (data.rate === 0) {
+            alert("Wystaw ocenę");
+        } else if (data.opinion === '') {
+            alert("Wystaw opinię");
+        } else {
+            this.setState((prevState) => ({modal: {...prevState.modal, loading: true}}));
+        }
+    };
 
     onCancelHandler = () => this.setState({modal: {loading: false, show: false}});
 
@@ -46,7 +56,7 @@ class Opinions extends React.Component {
         const { mode } = this.state;
         if (mode === 'highest') this.setState({mode: 'lowest'},() => this.sortByRating(this.state.opinionList));
         else this.setState({mode: 'highest'},() => this.sortByRating(this.state.opinionList));
-    }
+    };
 
     render() {
         const { opinionsNumber } = this.props.opinions;
@@ -80,7 +90,7 @@ class Opinions extends React.Component {
                 </ul>
             </div>
         );
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
