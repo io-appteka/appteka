@@ -1,24 +1,19 @@
 import React from 'react';
+import styles from './Content.css';
 
-export class ProductDetails extends React.Component {
-    
-state = {
-    on: false,
-}
+export class Content extends React.Component {
 
-toggle = () => {
-    this.setState({
-        on: !this.state.on
-    })
-}
- render() {
-    
+    render() {   
      return (
-          <div className={styles.ProductDetails}>
-             {this.state.on && <p>Szczegóły produktu.</p> }
-            </div>    
+            <div className={styles.Content}>
+                <ul>
+                    <li><button className={styles.cont}>Porównanie cen</button></li>
+                    <li><button className={styles.cont}>Szczegóły produktu</button></li>
+                    <li><button className={styles.cont}>Opinie</button></li>
+                </ul>
+            </div> 
 
     );
   }
-
-}
+    
+    }
