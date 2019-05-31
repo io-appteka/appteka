@@ -52,4 +52,5 @@
 
 .Sort {
     float: right;
+    text-transform: uppercase;
 }

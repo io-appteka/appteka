@@ -95,12 +95,12 @@ export class SearchField extends React.Component {
             <div className={styles.SearchField}>
                 <form>
                     {formElementsArray.map(formElement => (
-                        <Input 
+                        <Input
                         className={formElement.config.valid ? '' : styles.Unvalid}
                         key={formElement.id}
                         onChange={(event) => this.onChangeHandler(event, formElement.id)}
                         {...formElement.config.elementConfig}/>))}
-                    <Button disabled={!formIsValid} onClick={this.onClickHandler}>search</Button>
+                    <Button disabled={!formIsValid} onClick={this.onClickHandler}>Szukaj</Button>
                 </form>
             </div>
         );

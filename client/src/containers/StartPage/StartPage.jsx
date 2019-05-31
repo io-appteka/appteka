@@ -36,8 +36,8 @@ export class StartPage extends React.Component {
         return(
             <div className={styles.MainPage}>
                 <img className={styles.Graphic} src={graphic} alt="pharmacy buildings"/>
-                <div className={styles.Header}>Find the cheapest medicines in Your neighbourhood!</div>
-                <div className={styles.SmallHeader}>Do you wanna buy some meds but your bank account is almost empty? Don't worry, You can find cheapest meds with this App! Just type a drug name or tag below</div>
+                <div className={styles.Header}>Znajdź najtańsze leki w swojej okolicy!</div>
+                <div className={styles.SmallHeader}>Musisz zrealizować receptę, ale Twoje kieszenie są puste? Nie martw się, dzięki naszej aplikacji znajdziesz leki w najniższych cenach. Wystarczy, że wpiszesz, czego szukasz do wyszukiwarki poniżej.</div>
             <FirstSearch
                 data={this.state.drugList}
                 onClick={this.clickHandler}

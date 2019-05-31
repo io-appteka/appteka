@@ -71,11 +71,11 @@ class Opinions extends React.Component {
                     onOkHandler={this.onOkHandler}/>
                 </div>
                 <div className={styles.OpinionCount}>
-                    <b>{opinionsNumber}</b> user(s) rated this product
+                    <b>{opinionsNumber}</b> użytkowników oceniło ten produkt
                     <div className={styles.Sort}>
-                        SORT BY:<button onClick={this.toggleSortingMode}>{this.state.mode === 'highest' 
-                            ? 'HIGHEST RATING'
-                            : 'LOWEST RATING'}</button>
+                        Sortuj według:<button onClick={this.toggleSortingMode}>{this.state.mode === 'highest'
+                            ? 'NAJWYŻSZA OCENA'
+                            : 'NAJNIŻSZA OCENA'}</button>
                     </div>
                 </div>
                 <ul className={styles.Opinions}>

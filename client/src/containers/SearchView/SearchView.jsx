@@ -38,12 +38,12 @@ export class SearchView extends React.Component {
 
         //fetching data from server about drug description - name sent -> description received
         this.setState({drugDescription: {
-            name: "Prednisone",
-            desc: "Prednisone is used to treat conditions such as arthritis, blood disorders, breathing problems, severe allergies, skin diseases, cancer, eye problems, and immune system disorders.",
+            name: "Prednizon",
+            desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
             rating: 3.5,
             opinionsNumber: 71,
-            tags: ["allergy", "breathing", "skin"],
-            image: "",
+            tags: ["alergia", "oddychanie", "skóra"],
+            image: "prednizon.jpg",
         }});
 
         //fetching data from server about drug opinion - name sent -> opinion received
