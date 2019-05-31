@@ -11,8 +11,12 @@ export const Toolbar = ({isAuth, onLogin}) => (
         <div className={styles.Logo}><NavigationItem exact link ="/">APPTEKA</NavigationItem></div>
         <div className={styles.Logging}>
             {isAuth
+            ? <NavigationItem link="/profile">Profile</NavigationItem>
+            : null}
+            {isAuth
                 ? <NavigationItem  link="/logout">Log out</NavigationItem> 
                 : <NavigationItem  link="/auth" onClick={onLogin}>Log in</NavigationItem>}
+           
             {isAuth ? null : <div className={styles.Register}><NavigationItem link="/register" onClick={onLogin}>Register</NavigationItem></div>}
         </div>
         
