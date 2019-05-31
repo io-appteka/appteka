@@ -13,7 +13,7 @@ class auth extends React.Component {
             email: {
                 elementConfig:{
                     type: 'email',
-                    placeholder: 'Email Address',
+                    placeholder: 'Adres e-mail',
                 },
                 value: '',
                 validation: {
@@ -25,7 +25,7 @@ class auth extends React.Component {
             password: {
                 elementConfig:{
                     type: 'password',
-                    placeholder: 'Password',
+                    placeholder: 'Hasło',
                 },
                 value: '',
                 validation: {
@@ -164,18 +164,18 @@ class auth extends React.Component {
             authRedirect = <Redirect to={this.props.authRedirectPath}/>;
         }
 
-        let switchBtn = (<p>Don't have an account?<NavLink className={styles.Switch} to="/register">
-        Register</NavLink></p>);
-        if (isSignup) switchBtn = (<p>Already have an account?<NavLink className={styles.Switch} to="/auth">
-        Log in</NavLink></p>);
+        let switchBtn = (<p>Nie masz konta?<NavLink className={styles.Switch} to="/register">
+        Załóż konto</NavLink></p>);
+        if (isSignup) switchBtn = (<p>Masz już konto?<NavLink className={styles.Switch} to="/auth">
+        Zaloguj się</NavLink></p>);
         return(
             <div className={styles.Auth}>
                 {authRedirect}
                 <form>
-                    <h1>{isSignup ? 'Registration form' : 'Log in to Appteka'}</h1>
+                    <h1>{isSignup ? 'Rejestracja' : 'Logowanie'}</h1>
                     {errorMessage}
                     {form}
-                    <Button className={styles.Register} disabled={!formIsValid} onClick={this.onClickHandler}>{isSignup ? 'Create an account' : 'Log in'}</Button>
+                    <Button className={styles.Register} disabled={!formIsValid} onClick={this.onClickHandler}>{isSignup ? 'Załóż konto' : 'Zaloguj się'}</Button>
                     {switchBtn}
                 </form>
             </div>

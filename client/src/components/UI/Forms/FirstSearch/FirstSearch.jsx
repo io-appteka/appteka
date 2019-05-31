@@ -20,10 +20,10 @@ export class FirstSearch extends React.Component {
             dataSource={data}
             style={{ width: 358, height: 59}}
             filterOption={(inputValue, option) => this.filterFunction(inputValue,option)}
-            placeholder="Enter drug name..."
+            placeholder="Wpisz nazwę leku, apteki lub dolegliwości"
             onChange = {(value) => this.setState({value: value})}
             />
-            <Button onClick={() => onClick(this.state.value)}>search</Button>
+            <Button onClick={() => onClick(this.state.value)}>Szukaj</Button>
             </div>
         );
     }

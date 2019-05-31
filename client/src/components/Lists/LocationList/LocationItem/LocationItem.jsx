@@ -17,7 +17,7 @@ const locationItem = ({info, history}) => {
         <Icon type="environment" />
         <div className={styles.Address}><span>{info.address}</span></div>
         <div className={styles.Distance}><span>{info.distance} km</span></div>
-        <button className={styles.Link} onClick={onClickHandler}>Pokaż szczegóły</button>
+        <button className={styles.Link} onClick={onClickHandler}>Pokaż na mapie</button>
     </li>
 )};
 

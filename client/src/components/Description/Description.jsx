@@ -11,7 +11,7 @@ export const Description = ({drugInfo, tags}) => (
 
             <Rating value={drugInfo.rating} color={'#77D9EE'}/>
             <span>{drugInfo.rating}</span>
-            <span>({drugInfo.opinionsNumber} opinions)</span>
+            <span>({drugInfo.opinionsNumber} opinii)</span>
 
             <p>{drugInfo.desc}</p>
             <div className={styles.Tags}>

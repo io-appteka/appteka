@@ -4,8 +4,8 @@ import { NavigationItem } from './NavigationItem/NavigationItem';
 
 export const NavigationItems = ({isAuth, onLogin}) => (
     <ul className={styles.NavigationItems}>
-        <NavigationItem link="/drugs">Drugs</NavigationItem>
-        <NavigationItem link="/pharmacies">Pharmacies</NavigationItem>
-        <NavigationItem link="/about">About us</NavigationItem>
+        <NavigationItem link="/drugs">Leki</NavigationItem>
+        <NavigationItem link="/pharmacies">Apteki</NavigationItem>
+        <NavigationItem link="/about">O Nas</NavigationItem>
     </ul>
 );
