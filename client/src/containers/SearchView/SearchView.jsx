@@ -5,6 +5,8 @@ import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { Description } from '../../components/Description/Description';
 import { PricesList } from '../../components/Lists/PricesList/PricesList';
 import  Opinions  from '../../components/Opinions/Opinions';
+import  { Content } from '../../components/Content/Content';
+import { ProductDetails } from '../../components/ProductDetails/ProductDetails';
 
 export class SearchView extends React.Component {
     state = {
@@ -203,8 +205,10 @@ export class SearchView extends React.Component {
                 </div>
                 <Card>
                     <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    {this.state.isOpinionsLoaded && <Opinions opinions={this.state.opinions}/>}
-                    {/* <PricesList data={this.state.data}/> */}
+                    {/*{this.state.isOpinionsLoaded && <Opinions opinions={this.state.opinions}/>}*/}
+                    <Content/>
+                    <PricesList data={this.state.data}/>
+                    <ProductDetails/>
                 </Card>
             </div>
         );
