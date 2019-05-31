@@ -41,7 +41,7 @@ export class SearchView extends React.Component {
             rating: 3.5,
             opinionsNumber: 71,
             tags: ["allergy", "breathing", "skin"],
-            image: "",
+            image: "prednizon.jpg",
         }});
 
         //fetching data from server about drug opinion - name sent -> opinion received
