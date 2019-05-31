@@ -14,9 +14,30 @@ namespace server.tests
         [Fact]
         public void ApptekaDbContextGetDrugs_ShouldPass()
         {
+            var options = new DbContextOptionsBuilder<ApptekaDbContext>()
+                .UseInMemoryDatabase(databaseName: "appteka")
+                .Options;
+
+            var context = new ApptekaDbContext(options);
+            context.Tags.AddRange(new List<Tag>()
+            {
+                new Tag()
+                {
+                    Id = 1,
+                    Value = "kaszel"
+                },
+                new Tag()
+                {
+                    Id = 2,
+                    Value = "grypa"
+                }
+            });
+
+            context.Drugs.AddRange(new List<Drug>(GetSampleDrugs()));
+            context.SaveChanges();
+
             var expected = new List<Drug>(GetSampleDrugs());
-            ApptekaDbContext context = CreateSampleDataBase(expected);
-            var actual = context.Drugs;
+            var actual =  context.Drugs;
 
             Assert.Equal(expected, actual);
         }

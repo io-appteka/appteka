@@ -53,5 +53,11 @@ namespace server.Controllers
         {
             _crudProvider.DeleteDrug(id);
         }
+
+        [HttpGet("test")]
+        public ActionResult<List<string>> TestGet()
+        {
+            return new JsonResult(new List<string>() { "a", "b" });
+        }
     }
 }

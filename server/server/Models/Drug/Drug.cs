@@ -22,7 +22,12 @@ namespace server.Models
         [NotMapped]
         public List<Tag> Tags
         {
-            get => Drugs_Tags.Select(dt => dt.Tag).ToList();
+            get {
+                var toReturn = Drugs_Tags.Select(dt => dt.Tag)?.ToList();
+                if (toReturn != null)
+                    return toReturn;
+                return new List<Tag>();
+            }
             set { }
         }
     }
