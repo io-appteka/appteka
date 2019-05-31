@@ -10,6 +10,7 @@ import { AboutUs } from './containers/AboutUs/AboutUs';
 import { SearchView } from './containers/SearchView/SearchView';
 import { Auth } from './containers/Auth/Auth';
 import { Logout } from './containers/Auth/Logout/Logout';
+import { Profile } from './containers/Profile/Profile';
 import * as actions from './store/actions/index';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/pharmacies" component={PharmacyList}/>
             <Route path="/about" component={AboutUs}/>
             <Route path="/listing" component={SearchView}/>
+            <Route path="/profile" component={Profile}/>
             <Redirect to="/" />
           </Switch>
         </Layout>
