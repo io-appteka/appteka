@@ -21,7 +21,7 @@
     border-bottom: 2px solid #43BBD6;
 }
 
-.Content button {
+.Content .cont {
     background: none;
 	color: inherit;
 	border: none;
@@ -30,10 +30,3 @@
 	cursor: pointer;
 	outline: inherit;
 }
-
-.Content .current {
-   color: #43BBD6;
-   border-bottom: 2px solid #43BBD6; 
-}
-
-
