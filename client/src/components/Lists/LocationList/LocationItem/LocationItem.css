@@ -5,7 +5,7 @@
 }
 
 .LocationItem svg {
-    color: #FF53BA;
+    color: #7AE274;
     padding-right: 10px;
 }
 
@@ -45,7 +45,7 @@
     font: inherit;
     font-size: 14px;
     line-height: 17px;
-    color: #FF53BA;
+    color: #7AE274;
     display: flex;
     text-decoration-line: underline;
     cursor: pointer;

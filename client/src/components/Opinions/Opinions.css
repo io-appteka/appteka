@@ -28,7 +28,7 @@
      /*text-transform: uppercase;*/
      outline: none;
      border: 1px solid transparent;
-     background: #FF53BA;
+     background: #7AE274;
      border-radius: 10px;
      font: inherit;
      font-weight: bold;
@@ -45,7 +45,7 @@
 }
 
 .Button button:not(:disabled):hover {
-    background: #FF53BA;
+    background: #7AE274;
     transition: all 0.4s ease 0s;
     cursor: pointer;
 }

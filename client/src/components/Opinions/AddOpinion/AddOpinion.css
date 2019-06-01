@@ -9,8 +9,8 @@
 }
 
 .AddOpinion :global(.index__ant-btn-primary) {
-    background: #FF53BA;
-    border-color: #FF53BA;
+    background: #7AE274;
+    border-color: #7AE274;
     border-radius: 8px;
     height: 40px;
 }
@@ -46,7 +46,7 @@
     width: 98%;
     background: #F7F7F7;
     border-width: 0;
-    border-bottom: 3px solid #43BBD6;
+    border-bottom: 3px solid #29BDAF;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
@@ -55,7 +55,7 @@
 }
 
 .OpinionRate {
-    color: #FF53BA;
+    color: #7AE274;
     display: block;
     padding-bottom: 15px;
 }
