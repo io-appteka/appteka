@@ -12,7 +12,8 @@
     z-index: 90;
 }
 
-.Logo {
+.Toolbar .Logo {
+   
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,12 +22,17 @@
     font-style: normal;
     font-weight: 900;
     font-size: 28px;
-    line-height: normal;
+    line-height: normal;   
+}
+
+.Toolbar .Logo a {
+ color: #4D6565 !important;
 }
 
 .Toolbar nav {
     height: 100%;
 }
+    
 
 .Logging {
     display: flex;
@@ -45,17 +51,17 @@
 .Logging a:hover,
 .Logging a:active,
 .Logging a.active {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #7AE274;
 }
 
 .Register a {
-    color: #FF53BA !important;
+    color: #4D6565 !important;
     font-weight: 800;
 }
 
 .Register a:hover {
     color: #ffffff !important;
-     border-bottom: 1px solid #FF53BA;
+     border-bottom: 1px solid #7AE274;
 }
 
 
