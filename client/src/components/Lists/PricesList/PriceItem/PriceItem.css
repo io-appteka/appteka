@@ -11,13 +11,13 @@
 .PharmacyName {
     font-weight: bold;
     font-size: 30px;
-    color: rgba(0, 0, 0, 0.74);
+    color: #4D6565;
 }
 
 .Price {
     font-weight: bold;
     font-size: 38px;
-    color: #FF53BA;
+    color: #7AE274;
 }
 
 .Price small {
