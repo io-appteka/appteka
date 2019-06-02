@@ -1,0 +1,146 @@
+.Profile {
+
+}
+
+.Profile .ProfileBox {
+       margin-top: 50px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    width: 60%;
+    height: 60vh;
+    left: 50%;
+    transform: translate(-50%,0);
+    color: rgba(0, 0, 0, 0.74);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    font-size: 1.2em;
+}
+
+
+.Profile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Profile ul li {
+    margin: 15px 0;
+    padding: 8px;
+}
+
+
+
+.Profile .box3 ul {
+    margin-left: 20px;
+}
+
+
+.Profile .box3 ul li:hover {
+    color: #7AE274;
+}
+
+.Profile .box3 ul li:nth-child(4) {
+    width: 68%;
+    background: #EEEEEE;
+    border-radius: 8px;
+}
+
+.Profile .grid {
+  min-height: 100%;
+    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+justify-content: space-between;
+}
+
+.Profile .grid > div {
+  display: flex; 
+  flex-basis: 50%;  
+ height: 70%;
+  flex-direction: column;
+    
+  
+}
+
+
+.Profile .grid > div:first-child {
+  display: flex; 
+  margin-top: 10px;
+  height: 10%;
+  flex-basis: 100%;  
+  justify-content: center;
+  flex-direction: column;
+   
+}
+
+.Profile .grid > div:nth-child(2) {
+    flex-basis: 27%;
+     border-right: 1px solid #C5C5C5;
+
+
+}
+
+.Profile .grid > div:nth-child(3) {
+    flex-basis: 70%;
+    overflow: scroll;
+    height: calc(100vh - 420px);
+}
+
+
+.Profile .box { margin: 0 0 10px 0}
+
+.Profile .Username {
+    margin-top: 12px;
+    margin-left: 16px;
+    font-weight: 600;
+    font-size: 28px;
+    color: #7AE274;
+}
+
+.Profile .Username span {
+    font-size: 22px;
+    color: rgba(0,0,0, 0.47);
+}
+
+.Profile button {
+       background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
+}
+
+.Profile .box4 p, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.Profile .box4 h3 {
+    margin: 40px 0 30px 0;
+    color: #7AE274;
+}
+
+.Profile input[type="submit"]{
+    width: 22%;
+    padding: 20px;
+    background: none;
+    border: 2px solid #A6A6A6;
+    border-radius: 30px;
+    margin: 50px 30px 0 auto;    
+    font-family: inherit; 
+    font-weight: 600;
+    font-size: 16px;
+    color: #A6A6A6;
+    transition: 0.2s ease-in;
+}
+
+.Profile input[type="submit"]:hover {
+    background: #7AE274;
+    color: rgba(0, 0, 0, 0.74);
+    border: 2px solid transparent;
+}
