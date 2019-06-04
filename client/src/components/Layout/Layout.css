@@ -6,6 +6,7 @@
     top: 0px;
     background: linear-gradient(180deg, #AAEDE7 0%, #29BDAF 100%);
     color: #FFFFFF;
+    overflow: hidden;
 }
 
 .Content {
