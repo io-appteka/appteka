@@ -1,0 +1,28 @@
+.AboutUs{
+    
+}
+
+.AboutUs .Content {
+    padding: 40px;
+    text-align: justify;
+}
+
+.AboutUs h1 {
+    color: #7AE274;
+}
+
+.AboutUs p {
+    line-height: 27px;
+}
+
+.AboutUs p:first-of-type {
+    margin-bottom: 40px;
+}
+
+.AboutUs span {
+    font-weight: 600;
+}
+
+.AboutUs h2 {
+    font-size: 22px;
+}
