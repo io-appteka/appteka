@@ -21,6 +21,9 @@
     padding-bottom: 18px;
     border-bottom: 2px solid #22C7B7;
 }
+.selected {
+    color: #22C7B7 !important;
+}
 
 .Content .cont {
     background: none;
