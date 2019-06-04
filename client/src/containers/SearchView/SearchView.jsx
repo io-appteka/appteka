@@ -201,11 +201,13 @@ export class SearchView extends React.Component {
                         history={this.props.history}
                     />}
                 </div>
-                <Card>
-                    <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                   {this.state.isOpinionsLoaded && <Content pricesListData={this.state.data} opinionsData={this.state.opinions}/>}
-                    <ProductDetails/>
-                </Card>
+                <div className={styles.Scrollable}>
+                    <Card>
+                        <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
+                    {this.state.isOpinionsLoaded && <Content pricesListData={this.state.data} opinionsData={this.state.opinions}/>}
+                        <ProductDetails/>
+                    </Card>
+                </div>
             </div>
         );
     }

@@ -6,7 +6,7 @@ export class AboutUs extends React.Component {
     render() {
         return (
             <div className={styles.AboutUs}>
-                <Card>
+                <Card type='higher'>
                     <div className={styles.Content}>
                         <h1>O Apptece</h1>
                         <p><span>Appteka</span> to portal, który ma na celu podjęcie zagadnienia wspomagania wyszukiwania tanich leków oferowanych przez apteki na określonym obszarze zainteresowania osoby wyszukującej. Po wyszukaniu przez użytkownika danego leku bądź tagu, zostaną mu udostępnione informacje na temat leku (skład, zastosowanie, efekty uboczne, zdjęcia, zamienniki, średnia cena) oraz aptek (dokładna cena leku, lokalizacja, godziny otwarcia, numer kontaktowy). </p>

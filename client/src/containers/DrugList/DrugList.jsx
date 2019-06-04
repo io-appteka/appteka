@@ -6,7 +6,7 @@ export class DrugList extends React.Component {
     render() {
         return (
             <div className={styles.DrugList}>
-                <Card>DrugList</Card>
+                <Card type='higher'>DrugList</Card>
             </div>
         );
     }
