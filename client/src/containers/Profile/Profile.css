@@ -3,7 +3,7 @@
 }
 
 .Profile .ProfileBox {
-    margin-top: 50px;
+    margin-top: 26px;
     background: #FFFFFF;
     border-radius: 30px;
     position: absolute;
@@ -116,4 +116,8 @@ justify-content: space-between;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.Form {
+    text-align: center;
 }
