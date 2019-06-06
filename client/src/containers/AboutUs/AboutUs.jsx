@@ -1,10 +1,36 @@
 import React from 'react';
 import { Card } from '../../components/Card/Card';
+import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import styles from './AboutUs.css';
 
 export class AboutUs extends React.Component {
+     state = {
+        query: {
+            drug: null,
+            location: 'Krakow, Poland',
+        },
+        isInput: false,
+    };
+
+    componentDidMount () {
+        const query = new URLSearchParams(this.props.location.search);
+        const queryContent = {};
+        for (let param of query.entries()){
+            queryContent[param[0]] = param[1];
+        }
+        this.setState({query: queryContent, isInput: true});
+    };
+
+    
     render() {
         return (
+            <>
+            <div className={styles.Form}>
+                    {this.state.isInput && <SearchField 
+                       drug={this.state.query.drug}
+                       location={this.state.query.location}
+                       history={this.props.history}/>}
+                </div>
             <div className={styles.AboutUs}>
                 <Card type='higher'>
                     <div className={styles.Content}>
@@ -15,7 +41,7 @@ export class AboutUs extends React.Component {
                         
                     </div>
                 </Card>
-            </div>
+            </div></>
         );
     }
 }
