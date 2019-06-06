@@ -4,11 +4,17 @@ import { ProfileDelete } from './ProfileDelete';
 import { ProfileOpinions } from './ProfileOpinions';
 import { PasswordChange } from './PasswordChange';
 import {UserData } from './UserData';
+import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import styles from './Profile.css';
 
 export class Profile extends React.Component {    
      state = {
         renderedComponent: 'data',
+        query: {
+            drug: null,
+            location: 'Krakow, Poland',
+        },
+        isInput: false,
     };
 
  mapNamesToComps = {
@@ -25,7 +31,12 @@ componentDidMount () {
             opinions: <ProfileOpinions/>,
             delete: <ProfileDelete/>,
         };
-        this.setState({renderedComponent: 'data'});
+        const query = new URLSearchParams(this.props.location.search);
+        const queryContent = {};
+        for (let param of query.entries()){
+            queryContent[param[0]] = param[1];
+        }
+        this.setState({renderedComponent: 'data', query: queryContent, isInput: true});
     };
 
     toggleData = () => this.setState({renderedComponent: 'data'});
@@ -38,6 +49,12 @@ componentDidMount () {
         const { renderedComponent } = this.state;
         return (
             <>
+            <div className={styles.Form}>
+                    {this.state.isInput && <SearchField 
+                       drug={this.state.query.drug}
+                       location={this.state.query.location}
+                       history={this.props.history}/>}
+                </div>
               <div className={styles.Profile}>
                 <div className={styles.ProfileBox}>
                   <div className={styles.grid}>
