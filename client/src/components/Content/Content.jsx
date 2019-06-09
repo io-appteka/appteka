@@ -17,7 +17,7 @@ export class Content extends React.Component {
     
     componentDidMount () {
         this.mapNamesToComps = {
-            prices: <PricesList data={this.props.pricesListData}/>,
+            prices: <PricesList data={this.props.pricesListData.data} name={this.props.pricesListData.name}/>,
             description: <DrugDetails/>,
             opinions: <Opinions opinions={this.props.opinionsData}/>,
         };

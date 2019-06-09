@@ -47,4 +47,9 @@
     display: flex;
     color: rgba(0, 0, 0, 0.25);
     margin-right: 10px;   
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration-line: underline;
 }
