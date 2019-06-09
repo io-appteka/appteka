@@ -204,7 +204,7 @@ export class SearchView extends React.Component {
                 <div className={styles.Scrollable}>
                     <Card>
                         <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    {this.state.isOpinionsLoaded && <Content pricesListData={this.state.data} opinionsData={this.state.opinions}/>}
+                    {this.state.isOpinionsLoaded && this.state.drugDescription && <Content pricesListData={{data: this.state.data,name: this.state.drugDescription.name}} opinionsData={this.state.opinions}/>}
                         <ProductDetails/>
                     </Card>
                 </div>
