@@ -6,15 +6,9 @@
 
 
 .ProfileOpinions .OpinionBox {
-    border-bottom: 1px solid #C5C5C5;
     width: 90%;
     padding: 14px;
 }
-
-.ProfileOpinions .OpinionBox:first-child {
-    border-top: 1px solid #C5C5C5;
-}
-
 
 .ProfileOpinions h3{
     padding: 0;
