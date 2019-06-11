@@ -14,10 +14,12 @@ const locationItem = ({info, history}) => {
 
     return(
     <li className={styles.LocationItem}>
-        <Icon type="environment" />
-        <div className={styles.Address}><span>{info.address}</span></div>
-        <div className={styles.Distance}><span>{info.distance} km</span></div>
-        <button className={styles.Link} onClick={onClickHandler}>Pokaż na mapie</button>
+        <div className={styles.Info}><span>{info.address}</span></div>
+        <div className={styles.Info}><span>{info.distance} km</span></div>
+        <div className={styles.Info}><span>{info.openingHours}</span></div>
+        <div className={styles.Info}><span>tel. {info.phone}</span></div>
+        <button className={styles.Button} onClick={onClickHandler}><Icon type="environment" theme="filled" />Mapa</button>
+        <button className={styles.Button} onClick={onClickHandler}><Icon type="info-circle" theme="filled" />Szczegóły</button>
     </li>
 )};
 
