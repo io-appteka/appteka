@@ -1,25 +1,123 @@
 .Profile {
-   
+
 }
 
 .Profile .ProfileBox {
-    position: absolute;
-    padding: 0 40px 0 40px ;
-    height: 70vh;
-    width: 50%;
-    left: 50%;
-    top: 136px;
-    margin-right: 38%;
-    transform: translate(-50%,0);
+    margin-top: 26px;
     background: #FFFFFF;
-    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
+    border-radius: 30px;
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    width: 66%;
+    height: 65vh;
+    left: 50%;
+    transform: translate(-50%,0);
     color: rgba(0, 0, 0, 0.74);
-    -webkit-animation: expand 2s alternate;
-    overflow: hidden;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    font-size: 1.2em;
 }
 
-@-webkit-keyframes expand{
-    0%{top:100vh; height: 0;}
-    100%{top: 136px; height: 70vh;}
+
+.Profile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Profile ul li {
+    margin-bottom: 5px;
+}
+
+
+.Profile .box4 ul li {
+    margin: 35px 0;
+}
+
+.Profile .box4 ul li:first-child {
+    margin-top: 15px;
+}
+
+
+.Profile .box3 ul li:last-child {
+    color: rgba(0,0,0,0.47);
+}
+
+.Profile .box3 ul li:hover{
+    color: #7AE274;
+}
+
+
+.Profile .grid {
+  min-height: 100%;
+    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+justify-content: space-between;
+}
+
+.Profile .grid > div {
+  display: flex; 
+  flex-basis: 50%;  
+ height: 70%;
+  flex-direction: column;
+    
+  
+}
+
+.Profile .grid > div:first-child {
+  display: flex; 
+  margin-top: 10px;
+  height: 10%;
+  flex-basis: 100%;  
+  justify-content: center;
+  flex-direction: column;
+   
+}
+
+.Profile .grid > div:nth-child(2) {
+    flex-basis: 27%;
+     border-right: 1px solid #C5C5C5;
+
+
+}
+
+.Profile .grid > div:nth-child(3) {
+    flex-basis: 70%;
+}
+
+
+.Profile .box { margin: 0 0 10px 0}
+
+.Profile .Username {
+    margin-top: 12px;
+    margin-left: 16px;
+    font-weight: 600;
+    font-size: 28px;
+    color: #7AE274;
+}
+
+.Profile .Username span {
+    font-size: 22px;
+    color: rgba(0,0,0, 0.47);
+}
+
+.activeProfileTab {
+    background: #EEEEEE !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+}
+
+.Profile .cont {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 10px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.Form {
+    text-align: center;
 }

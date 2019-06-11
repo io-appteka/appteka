@@ -1,0 +1,19 @@
+.UserData {
+    margin-top: 16px;
+}
+
+.UserData .floatleft  {
+    float: left;
+}
+
+.UserData .floatright  {
+    float: right;
+    width: 53%;
+    text-align: center;
+}
+
+.UserData .floatright ul li {
+    border-bottom: 1px solid #555;
+    width: 70%;
+}
+
