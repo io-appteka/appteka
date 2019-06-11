@@ -16,21 +16,8 @@
 }
 
 
-.ProfileOpinions  p, h3, h6 {
+.ProfileOpinions h3{
     padding: 0;
     margin: 0;
 }
 
-.ProfileOpinions h6 {
-    font-weight: 300;
-    margin-bottom: 5px;
-}
-
-.ProfileOpinions h3 {
-    margin-bottom: 5px;
-}
-
-.ProfileOpinions  p {
-    font-size: 0.9em;
-    text-align: justify;
-}
