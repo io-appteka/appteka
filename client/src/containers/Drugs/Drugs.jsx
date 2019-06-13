@@ -3,8 +3,9 @@ import { Card } from '../../components/Card/Card';
 import styles from './Drugs.css';
 import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { DrugList } from '../../components/Lists/DrugList/DrugList';
-import { Tag } from '../../components/UI/Tag/Tag';
+import { CheckableTag } from '../../components/UI/CheckableTag/CheckableTag';
 import { Icon } from 'antd';
+
 
 export class Drugs extends React.Component {
      state = {
@@ -15,7 +16,8 @@ export class Drugs extends React.Component {
         mode: 'lowest',
         isInput: false,
         tags: [],
-        drugs: []
+        drugs: [],
+        filters: []
     };
 
     componentDidMount () {
@@ -80,6 +82,12 @@ export class Drugs extends React.Component {
         else this.setState({mode: 'highest'},() => this.sortByRating(this.state.drugs));
     };
 
+    handleFilterChange = (tag, checked) => {
+        let { filters } = this.state;
+        const newFilters = checked ? [...filters, tag] : filters.filter(f => f !== tag);
+        this.setState({filters: newFilters});
+    }
+
     render() {
         return (
             <div>
@@ -94,7 +102,13 @@ export class Drugs extends React.Component {
                     <Card>
                         <div className={styles.Header}>Tagi:</div>
                         <div className={styles.Tags}>
-                            {this.state.tags && this.state.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                            {this.state.tags && this.state.tags.map(tag =>
+                            <CheckableTag
+                                key={tag}
+                                checked={this.state.filters.indexOf(tag) > -1}
+                                onClick={checked => this.handleFilterChange(tag, checked)}
+                            >
+                            {tag} </CheckableTag>)}
                         </div>
                         <div className={styles.Sort}>
                             Sortuj według:<button onClick={this.toggleSortingMode} className={styles.SortButton}>
