@@ -17,6 +17,7 @@ export class Drugs extends React.Component {
         isInput: false,
         tags: [],
         drugs: [],
+        drugsCopy: [],
         filters: []
     };
 
@@ -74,6 +75,7 @@ export class Drugs extends React.Component {
             else return 0;
             });
         this.setState({drugs: sortedDrugs});
+        this.setState({drugsCopy: this.state.drugs});
     };
 
     toggleSortingMode = () => {
@@ -82,10 +84,28 @@ export class Drugs extends React.Component {
         else this.setState({mode: 'highest'},() => this.sortByRating(this.state.drugs));
     };
 
-    handleFilterChange = (tag, checked) => {
+    updateFilters = (tag, checked) => {
         let { filters } = this.state;
         const newFilters = checked ? [...filters, tag] : filters.filter(f => f !== tag);
-        this.setState({filters: newFilters});
+        this.setState({filters: newFilters}, () => this.filterDrugs());
+    }
+
+    filterDrugs = () => {
+        let filteredDrugs;
+        if (this.state.filters.length === 0) {
+            filteredDrugs = this.state.drugsCopy;
+        }
+        else {
+            filteredDrugs = this.state.drugsCopy.filter( drug => {
+                for (let i = 0; i < this.state.filters.length; i++) {
+                    if (drug.tags.includes(this.state.filters[i])) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+        this.setState({drugs: filteredDrugs});
     }
 
     render() {
@@ -106,7 +126,7 @@ export class Drugs extends React.Component {
                             <CheckableTag
                                 key={tag}
                                 checked={this.state.filters.indexOf(tag) > -1}
-                                onClick={checked => this.handleFilterChange(tag, checked)}
+                                onClick={checked => this.updateFilters(tag, checked)}
                             >
                             {tag} </CheckableTag>)}
                         </div>
