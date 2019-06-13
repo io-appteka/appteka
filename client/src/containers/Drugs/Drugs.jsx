@@ -12,7 +12,8 @@ export class Drugs extends React.Component {
             location: 'Krakow, Poland',
         },
         isInput: false,
-        tags: []
+        tags: [],
+        drugs: []
     };
 
     componentDidMount () {
@@ -24,6 +25,40 @@ export class Drugs extends React.Component {
         this.setState({query: queryContent, isInput: true});
 
         this.setState({tags: ["alergia", "oddychanie", "skóra", "bardzo boli", "atopowe zapalenie skóry", "ból", "obrzęk", "jaskra", "wzdęcia", "higiena nosa", "probiotyk", "witamina C"]});
+        this.setState({drugs: [
+            {
+                name: "Prednizon1",
+                desc: "Prednizon1 jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
+                rating: 3.5,
+                opinionsNumber: 71,
+                tags: ["alergia", "oddychanie", "skóra"],
+                image: "prednizon.jpg",
+            },
+            {
+                name: "Prednizon2",
+                desc: "Prednizon2 jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
+                rating: 0.5,
+                opinionsNumber: 12,
+                tags: ["higiena nosa", "probiotyk", "skóra"],
+                image: "prednizon.jpg",
+            },
+            {
+                name: "Prednizon3",
+                desc: "Prednizon3 jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
+                rating: 5.0,
+                opinionsNumber: 89,
+                tags: ["obrzęk", "oddychanie", "ból"],
+                image: "prednizon.jpg",
+            },
+            {
+                name: "Prednizon4",
+                desc: "Prednizon4 jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
+                rating: 2.5,
+                opinionsNumber: 33,
+                tags: ["alergia", "oddychanie", "bardzo boli"],
+                image: "prednizon.jpg",
+            }
+        ]});
     };
 
     render() {
@@ -42,7 +77,7 @@ export class Drugs extends React.Component {
                         <div className={styles.Tags}>
                             {this.state.tags && this.state.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                         </div>
-                        <DrugList/>
+                        <DrugList drugs={this.state.drugs}/>
                     </Card>
                 </div>
             </div>

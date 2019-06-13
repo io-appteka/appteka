@@ -1,0 +1,49 @@
+.DrugItem {
+    border: 1px solid #c5c5c5;
+    border-bottom: none;
+    padding: 20px 20px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.DrugItem:last-child {
+    border-bottom: 1px solid #c5c5c5;
+}
+
+.DrugItem img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.DrugItem h1 {
+    margin: 0;
+    font-size: 28px;
+    display: inline-block;
+    color: #4D6565;
+}
+
+.Rating {
+    display: inline-block;
+    float: right;
+}
+
+.DrugItem span:nth-of-type(1) {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 20px;
+    margin: -20px 10px 0;
+    color: #4D6565;
+}
+
+.DrugItem span:nth-of-type(2) {
+    font-size: 16px;
+    color: #777777;
+}
+
+.DrugItem p {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 22px;
+}
