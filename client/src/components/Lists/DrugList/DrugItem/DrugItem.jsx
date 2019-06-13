@@ -10,7 +10,7 @@ export const DrugItem = ({drug, tags}) => (
             <h1>{drug.name}</h1>
             <div className={styles.Rating}>
                 <Rating value={drug.rating} color={'#77D9EE'}/>
-                <span>{drug.rating}</span>
+                <span>{drug.rating.toFixed(1)}</span>
                 <span>({drug.opinionsNumber} opinii)</span>
             </div>
             <p>{drug.desc}</p>

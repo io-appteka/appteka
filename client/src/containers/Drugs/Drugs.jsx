@@ -12,6 +12,7 @@ export class Drugs extends React.Component {
             drug: null,
             location: 'Krakow, Poland',
         },
+        mode: 'lowest',
         isInput: false,
         tags: [],
         drugs: []
@@ -59,7 +60,24 @@ export class Drugs extends React.Component {
                 tags: ["alergia", "oddychanie", "bardzo boli"],
                 image: "prednizon.jpg",
             }
-        ]});
+        ]}, () => this.sortByRating(this.state.drugs));
+    };
+
+
+    sortByRating = (drugs) => {
+        const { mode } = this.state;
+        const sortedDrugs = drugs.sort((firstDrug, secondDrug) => {
+            if (mode === 'highest') return firstDrug.rating - secondDrug.rating;
+            else if (mode === 'lowest') return secondDrug.rating - firstDrug.rating;
+            else return 0;
+            });
+        this.setState({drugs: sortedDrugs});
+    };
+
+    toggleSortingMode = () => {
+        const { mode } = this.state;
+        if (mode === 'highest') this.setState({mode: 'lowest'},() => this.sortByRating(this.state.drugs));
+        else this.setState({mode: 'highest'},() => this.sortByRating(this.state.drugs));
     };
 
     render() {

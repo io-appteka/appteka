@@ -4,6 +4,7 @@
     padding: 20px 20px 10px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .DrugItem:last-child {
@@ -11,8 +12,7 @@
 }
 
 .DrugItem img {
-    float: left;
-    width: 100px;
+    min-width: 100px;
     height: 100px;
     margin-right: 20px;
 }
