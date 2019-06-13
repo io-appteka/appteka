@@ -4,6 +4,7 @@ import styles from './Drugs.css';
 import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { DrugList } from '../../components/Lists/DrugList/DrugList';
 import { Tag } from '../../components/UI/Tag/Tag';
+import { Icon } from 'antd';
 
 export class Drugs extends React.Component {
      state = {
@@ -76,6 +77,12 @@ export class Drugs extends React.Component {
                         <div className={styles.Header}>Tagi:</div>
                         <div className={styles.Tags}>
                             {this.state.tags && this.state.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                        </div>
+                        <div className={styles.Sort}>
+                            Sortuj według:<button onClick={this.toggleSortingMode} className={styles.SortButton}>
+                                {this.state.mode === 'highest'
+                                ? (<span>OCENA ROSNĄCO <Icon type="arrow-up"/></span>)
+                                : (<span>OCENA MALEJĄCO <Icon type="arrow-down"/></span>)}</button>
                         </div>
                         <DrugList drugs={this.state.drugs}/>
                     </Card>

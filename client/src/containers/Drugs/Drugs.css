@@ -25,3 +25,27 @@
     margin-top: 40px;
     max-width: 90%;
 }
+
+
+.Sort {
+    float: right;
+    text-transform: uppercase;
+    color: #777777;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.SortButton {
+    outline: none;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    color: #777777;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.SortButton:hover {
+    color: #22C7B7;
+}
