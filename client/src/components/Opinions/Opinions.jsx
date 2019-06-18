@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Opinions.css';
 import { Opinion } from './Opinion/Opinion';
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
 import { AddOpinion } from './AddOpinion/AddOpinion';
@@ -70,12 +70,15 @@ class Opinions extends React.Component {
                     onCancelHandler={this.onCancelHandler}
                     onOkHandler={this.onOkHandler}/>
                 </div>
-                <div className={styles.OpinionCount}>
-                    <b>{opinionsNumber}</b> użytkowników oceniło ten produkt
+                <div className={styles.FlexBox}>
+                    <div>
+                        <b>{opinionsNumber}</b> użytkowników oceniło ten produkt
+                    </div>
                     <div className={styles.Sort}>
-                        Sortuj według:<button onClick={this.toggleSortingMode}>{this.state.mode === 'highest'
-                            ? 'NAJWYŻSZA OCENA'
-                            : 'NAJNIŻSZA OCENA'}</button>
+                        Sortuj według:<button onClick={this.toggleSortingMode} className={styles.SortButton}>
+                            {this.state.mode === 'highest'
+                            ? (<span>OCENA ROSNĄCO <Icon type="arrow-up"/></span>)
+                            : (<span>OCENA MALEJĄCO <Icon type="arrow-down"/></span>)}</button>
                     </div>
                 </div>
                 <ul className={styles.Opinions}>

@@ -1,52 +1,55 @@
 .LocationItem {
-    font-size: 18px;
-    line-height: 22px;
-    padding: 10px 0 10px 0;
+    font-size: 14px;
+    padding: 10px 0;
 }
 
 .LocationItem svg {
-    color: #7AE274;
-    padding-right: 10px;
+    padding-right: 5px;
+    margin-bottom: -2px;
 }
 
-.Address {
+.Info {
     display: inline-block;
-    position: relative;
-    width: 260px;
-    color: rgba(0, 0, 0, 0.74);
+    color: #333333;
+    padding: 0 15px;
+    border-right: 1px solid #555555;
 }
 
-.Address span {
-    position: relative;
-    padding-right: 10px;
+.Info:nth-child(1) {
+    min-width: 160px;
+    padding-left: 0;
+    color: #22C7B7;
+    font-weight: bold;
 }
 
-.Address span::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.47);
-    width: calc(250px - 100%);
-    left: 100%;
-    top: 12px;
-  }
-
-.Distance {
-    display: inline-block;
-    color: rgba(0, 0, 0, 0.47);
+.Info:nth-child(2) {
+    width: 60px;
 }
 
-.Link {
-    margin-left: 20px;
-    outline: none;
+.Info:nth-child(3) {
+    width: 80px;
+}
+
+.Info:nth-child(4) {
+    width: 120px;
+    border-right: none;
+}
+
+.Button {
+    margin-left: 10px;
     background: transparent;
-    border: none;
-    font: inherit;
-    font-size: 14px;
-    line-height: 17px;
-    color: #7AE274;
-    display: flex;
-    text-decoration-line: underline;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 4px 10px;
+    color: #22C7B7;
     cursor: pointer;
+    font-family: 'Montserrat';
+    border: 2px solid #22C7B7;
+    border-radius: 10px;
+    transition-duration: .2s;
+}
+
+.Button:hover {
+    background-color: #22C7B7;
+    color: #ffffff;
 }
