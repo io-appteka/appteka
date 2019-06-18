@@ -4,7 +4,7 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import {Layout} from './components/Layout/Layout';
 import {StartPage} from './containers/StartPage/StartPage';
-import { DrugList } from './containers/DrugList/DrugList';
+import { Drugs } from './containers/Drugs/Drugs';
 import { PharmacyList } from './containers/PharmacyList/PharmacyList';
 import { AboutUs } from './containers/AboutUs/AboutUs';
 import { SearchView } from './containers/SearchView/SearchView';
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/auth" component={Auth}/>
             <Route path="/register" component={Auth}/>
             <Route path="/logout" component={Logout}/>
-            <Route path="/drugs" component={DrugList}/>
+            <Route path="/drugs" component={Drugs}/>
             <Route path="/pharmacies" component={PharmacyList}/>
             <Route path="/about" component={AboutUs}/>
             <Route path="/listing" component={SearchView}/>
