@@ -32,6 +32,7 @@ export class SearchView extends React.Component {
         for (let param of query.entries()){
             queryContent[param[0]] = param[1];
         }
+        queryContent.drug = queryContent.drug.split(',');
         this.setState({query: queryContent, isInput: true});
 
         //fetching data from server about drug description - name sent -> description received
@@ -196,7 +197,7 @@ export class SearchView extends React.Component {
             <div className={styles.SearchView}>
                 <div className={styles.Form}>
                     {this.state.isInput && <SearchField
-                        drug={this.state.query.drug}
+                        drug={this.state.query.drug[0]}
                         location={this.state.query.location}
                         history={this.props.history}
                     />}

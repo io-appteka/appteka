@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './StartPage.css';
-import { FirstSearch } from '../../components/UI/Forms/FirstSearch/FirstSearch';
+import { MultiSelect } from '../../components/UI/MultiSelect/MultiSelect';
 import graphic from '../../media/main-page-graphic.png';
 
 export class StartPage extends React.Component {
@@ -23,8 +23,9 @@ export class StartPage extends React.Component {
         //component attached to the listing route
         // via this.props.location.search
         //then: connection to the server via axios
-        if (value !== '') {
-            const queryString = `drug=${encodeURIComponent(value)}&location=Kraków`;
+        if (value.length !== 0) {
+            const values = value.join(',');
+            const queryString = `drug=${encodeURIComponent(values)}&location=Kraków`;
             history.push({
                 pathname: '/listing',
                 search: '?' + queryString,
@@ -38,7 +39,8 @@ export class StartPage extends React.Component {
                 <img className={styles.Graphic} src={graphic} alt="pharmacy buildings"/>
                 <div className={styles.Header}>Znajdź najtańsze leki w swojej okolicy!</div>
                 <div className={styles.SmallHeader}>Musisz zrealizować receptę, ale Twoje kieszenie są puste? Nie martw się, dzięki naszej aplikacji znajdziesz leki w najniższych cenach. Wystarczy, że wpiszesz, czego szukasz do wyszukiwarki poniżej.</div>
-            <FirstSearch
+            <MultiSelect
+                placeholder='Wpisz nazwę leku, apteki lub dolegliwości'
                 data={this.state.drugList}
                 onClick={this.clickHandler}
             />
