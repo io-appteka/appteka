@@ -4,13 +4,12 @@ import {Icon} from 'antd';
 import {withRouter} from "react-router";
 import {Map} from "../../../Map/Map";
 
-const locationItem = ({info, history}) => {
+const locationItem = ({info}) => {
     const [show, setShow] = React.useState(false);
 
     const onClickHandler = () => {
         setShow(!show);
-        console.log(show);
-    }
+    };
 
     return (
         <li className={styles.LocationItem}>

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './StartPage.css';
 import { MultiSelect } from '../../components/UI/MultiSelect/MultiSelect';
 import graphic from '../../media/main-page-graphic.png';
+import axios from 'axios';
 
 export class StartPage extends React.Component {
     state = {
@@ -9,11 +10,16 @@ export class StartPage extends React.Component {
     }
 
     componentDidMount() {
-        //fetching data from server
-        //list of all drug names 
-        this.setState({
-            drugList: ["Acenol", "Acenol forte", "Aglan 15", "Aleve", "Alka-Prim", "Alka-Seltzer", "Amol", "Anapran Neo", "Antidol 15", "Apap Extra", "Apap Noc", "Apap, tabletki powlekane", "Aprofen", "Aspicam", "Aspirin", "Activ", "Aulin saszetki", "Aulin tabletki", "Bi-Profenid", "Cefalgin",  "Codipar", "Codipar 250, -500", "Dexak", "Dexak SL", "Dicloberl retard", "Doreta", "Efferalgan czopki", "Efferalgan tabletki", "Efferalgan", "Vitamin C", "Epiduo", "Erka", "Etopiryna", "Etopiryna Kontrol", "Gemipar 50, -125, -500", "Ibalgin", "Ibufen Forte", "Ibufen Total", "Ibufen zawiesina", "Ibum", "Ibum Forte", "Ibupar", "Ibuprofen Aflofarm", "Ibuprofen Pabi", "Ibuprom", "IBUPROM MAX", "Ketonal forte", "Kidofen duo", "Kodeina", "Kofepar", "Kopiryna", "Malupar 125, -250, -500", "Metafen", "MIG", "Migea", "Movalis", "Nalgesin", "Natrax 100, -200", "Nimesil", "Padolten", "Panadol", "Panadol dla dzieci"]
-        })
+        axios.get('https://apteka.azurewebsites.net/api/drugs/all').then((response) => {
+            this.setState({
+                drugList: response.data.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                }))
+            });
+        });
+        // drugList: ["Acenol", "Acenol forte", "Aglan 15", "Aleve", "Alka-Prim", "Alka-Seltzer", "Amol", "Anapran Neo", "Antidol 15", "Apap Extra", "Apap Noc", "Apap, tabletki powlekane", "Aprofen", "Aspicam", "Aspirin", "Activ", "Aulin saszetki", "Aulin tabletki", "Bi-Profenid", "Cefalgin",  "Codipar", "Codipar 250, -500", "Dexak", "Dexak SL", "Dicloberl retard", "Doreta", "Efferalgan czopki", "Efferalgan tabletki", "Efferalgan", "Vitamin C", "Epiduo", "Erka", "Etopiryna", "Etopiryna Kontrol", "Gemipar 50, -125, -500", "Ibalgin", "Ibufen Forte", "Ibufen Total", "Ibufen zawiesina", "Ibum", "Ibum Forte", "Ibupar", "Ibuprofen Aflofarm", "Ibuprofen Pabi", "Ibuprom", "IBUPROM MAX", "Ketonal forte", "Kidofen duo", "Kodeina", "Kofepar", "Kopiryna", "Malupar 125, -250, -500", "Metafen", "MIG", "Migea", "Movalis", "Nalgesin", "Natrax 100, -200", "Nimesil", "Padolten", "Panadol", "Panadol dla dzieci"]
+ 
     }
 
     clickHandler = (value) => {

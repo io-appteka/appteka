@@ -1,8 +1,6 @@
 @import '../../../../node_modules/antd/es/pagination/style/index.css';
 
 .Carousel {
-    margin: 20px 0 20px 0;
-    left: 50%;
-    margin-right: -50%;
-    transform: translateX(25%);
+    margin: 20px 0;
+    text-align: center;
 }

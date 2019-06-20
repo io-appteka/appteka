@@ -10,7 +10,7 @@ export const MultiSelect = ({data, onClick, ...other}) => {
         setValues(value)
     }
 
-    const children = data.map(item => <Option key={item}>{item}</Option>)
+    const children = data.map(item => <Option key={item.id}>{item.name}</Option>)
     return (
         <div className={styles.MultiSelect}>
             <Select

@@ -27,7 +27,7 @@ export const Map = ({show, x, y, onExit}) => {
         center: KrakowCoordinates,
         zoom: 12
     };
-    console.log("in map:"+show);
+
     return (
         <Modal
             title="Lokalizacja"
