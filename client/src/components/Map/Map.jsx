@@ -16,7 +16,7 @@ const defaultOptions = {
     draggingCursor: 'move',
 };
 
-export const Map = ({modal, x, y}) => {
+export const Map = ({show, x, y, onExit}) => {
 
     const KrakowCoordinates = {
         lat: 50.05,
@@ -27,10 +27,12 @@ export const Map = ({modal, x, y}) => {
         center: KrakowCoordinates,
         zoom: 12
     };
+
     return (
         <Modal
             title="Lokalizacja"
-            visible={modal.show}
+            visible={show}
+            onCancel={onExit}
             footer={null}
         >
             <div className={styles.Map}>
