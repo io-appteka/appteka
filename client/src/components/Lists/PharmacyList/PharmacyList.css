@@ -1,0 +1,35 @@
+.PharmacyList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.FlexBox {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    color: #777777;
+    font-size: 13px;
+}
+
+.Sort {
+    float: right;
+    text-transform: uppercase;
+}
+
+.SortButton {
+    outline: none;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    color: #777777;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.SortButton:hover {
+    color: #22C7B7;
+}

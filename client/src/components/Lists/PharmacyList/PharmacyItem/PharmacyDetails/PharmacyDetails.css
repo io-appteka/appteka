@@ -1,0 +1,56 @@
+.PharmacyDetails {
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.PharmacyDetails svg {
+    padding-right: 5px;
+    margin-bottom: -2px;
+}
+
+.Info {
+    display: inline-block;
+    color: #333333;
+    padding: 0 15px;
+    border-right: 1px solid #555555;
+}
+
+.Info:nth-child(1) {
+    min-width: 160px;
+    padding-left: 0;
+    color: #22C7B7;
+    font-weight: bold;
+}
+
+.Info:nth-child(2) {
+    width: 100px;
+}
+
+.Info:nth-child(3) {
+    width: 120px;
+    border-right: none;
+}
+
+.Info:nth-child(4) {
+    width: 120px;
+    border-right: none;
+}
+
+.Button {
+    margin-left: 10px;
+    background: transparent;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 4px 10px;
+    color: #22C7B7;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    border: 2px solid #22C7B7;
+    border-radius: 10px;
+    transition-duration: .2s;
+}
+
+.Button:hover {
+    background-color: #22C7B7;
+    color: #ffffff;
+}
