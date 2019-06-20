@@ -1,7 +1,6 @@
 .PriceItem {
     padding: 20px 25px;
     box-sizing: border-box;
-    cursor: pointer;
 }
 
 .PriceItem:not(:last-child){
@@ -25,6 +24,7 @@
 }
 
 .Locations {
+    cursor: pointer;
     font-size: 18px;
     line-height: 22px;
     color: rgba(0, 0, 0, 0.47);
