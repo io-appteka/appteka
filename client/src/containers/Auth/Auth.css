@@ -28,38 +28,44 @@
     color: #7AE274;
     font-size: 30px;
     line-height: 37px;
-    margin-top: 0;
+    margin-top: 15px;
     margin-bottom: 70px;
     align-items: center;
-    text-align: center; 
+    text-align: center;
 }
 
 .Auth form {
     display: block;
 }
 .Auth input {
-    width: 524px;
-    background: transparent;
+    width: 460px;
+    background: #ffffff;
     font: inherit;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     transition: all 0.4s ease 0s;
-    border-radius: 6px 6px 0 0;
     height: 37px;
-    margin: 0 5px; 
-    color: rgba(0, 0, 0, 0.47);
+    color: #555555;
     outline: none;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.74);
+    border-bottom: 2px solid #C5C5C5;
     box-sizing: border-box;
     padding: 9px 10px;
-    margin: 10px 0;
+    margin: 30px 0;
     display: block;
 }
 
+.Auth input:focus {
+    border-bottom: 2px solid #555555;
+}
+
+.Auth input::-webkit-input-placeholder {
+    color: #C5C5C5;
+}
+
 .Register {
-    width: 310px;
+    width: 280px;
     height: 51px;
     border-radius: 13px;
     display: block;
@@ -76,11 +82,9 @@
 .Register:hover {
     transition: all 0.4s ease 0s;
     background: #7AE274;
-
 }
 
-.Switch 
-{
+.Switch {
     margin-left: 10px;
     outline: none;
     cursor: pointer;
@@ -94,7 +98,7 @@
 }
 
 .Register:disabled {
-    background: grey;
+    background: #C5C5C5;
     cursor: not-allowed !important;
 }
 
@@ -105,8 +109,10 @@
 }
 
 :global(.ant-input).Unvalid {
-    background: #bcf4b8;
+    background: #FFD5D5;
+    color: #c42525;
     transition: all 0.4s ease 0s;
+    border-bottom: 2px solid #c42525 !important;
 }
 
 .Auth :global(.index__ant-spin) {
