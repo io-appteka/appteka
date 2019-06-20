@@ -9,7 +9,7 @@
     outline: none;
     border: 1px solid transparent;
     background: #FFFFFF;
-    border-radius: 10px;    
+    border-radius: 10px;
     font: inherit;
     font-weight: bold;
     font-size: 18px;
@@ -17,15 +17,15 @@
     padding: 6px 10px;
     margin: 20px 30px;
     margin-left: 450px;
-    width: 156px;
-    height: 59px;
+    width: 132px;
+    height: 46px;
     box-sizing: border-box;
+    transition: all 0.4s ease 0s;
 }
 
 .MultiSelect button:hover {
     color: #ffffff;
     background: #7AE274;
-    transition: all 0.4s ease 0s;
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
     background: rgba(0, 95, 116, 0.18);
     border-color:  rgba(0, 95, 116, 0.18);
     border-radius: 10px;
-    height: 59px;
+    height: 46px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -50,11 +50,15 @@
     width: 100%;
 }
 .MultiSelect :global(.index__ant-select-selection__placeholder) {
-    color: #FFFFFF !important;
+    color: rgba(255,255,255,0.8) !important;
 }
 .MultiSelect :global(.index__ant-select-selection__choice) {
     border-radius: 5px;
-    color:  #1888A2;;
+    color: #1888A2;
+    line-height: 24px;
+}
+.MultiSelect :global(.index__ant-select-selection__choice__remove) {
+    line-height: 28px;
 }
 ::-webkit-scrollbar{
     width: 6px;
@@ -69,4 +73,3 @@
 :global(.index__ant-select-dropdown-menu) {
     max-height: 200px;
 }
-

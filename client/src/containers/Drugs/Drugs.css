@@ -7,12 +7,13 @@
     padding-bottom: 40px;
     position: relative;
     width: 100%;
-    height: calc(100vh - 6px);
 }
 
 .Header {
+    box-sizing: border-box;
     vertical-align: top;
     display: inline-block;
+    width: 8%;
     margin-top: 40px;
     padding-right: 20px;
     font-size: 20px;
@@ -21,11 +22,11 @@
 }
 
 .Tags {
+    box-sizing: border-box;
     display: inline-block;
     margin-top: 40px;
-    max-width: 90%;
+    width: 92%;
 }
-
 
 .Sort {
     float: right;

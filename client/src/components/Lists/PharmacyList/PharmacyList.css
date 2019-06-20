@@ -3,6 +3,7 @@
     padding: 0;
     list-style: none;
     margin-bottom: 40px;
+    padding-top: 60px;
 }
 
 .FlexBox {
@@ -17,6 +18,9 @@
 .Sort {
     float: right;
     text-transform: uppercase;
+    color: #777777;
+    font-size: 13px;
+    margin-top: 20px;
 }
 
 .SortButton {

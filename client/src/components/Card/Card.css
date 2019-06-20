@@ -1,26 +1,22 @@
 .Card {
-    padding: 0 40px 0 40px ;
+    padding: 0 40px 1px;
     width: 65%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 40px;
     background: #FFFFFF;
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
-    border-radius: 50px 50px 0px 0px;
+    border-radius: 30px;
     color: rgba(0, 0, 0, 0.74);
     -webkit-animation: expand 2s alternate;
-    overflow-y: scroll;
-}
-.Card::-webkit-scrollbar { 
-    display: none; 
 }
 
-:global(.lower){
+/* :global(.lower){
+    height: 100%;
     height: calc(100vh - 136px);
 }
 
 :global(.higher) {
     height: calc(100vh - 60px);
-}
+} */
 
 @-webkit-keyframes expand{
     0%{transform: translateY(100vh)}

@@ -34,13 +34,11 @@ export class PharmacyList extends React.Component {
     render() {
         return (
             <div>
-                <div className={styles.FlexBox}>
-                    <div className={styles.Sort}>
-                        Sortuj według:<button onClick={this.toggleSortingMode} className={styles.SortButton}>
-                            {this.state.mode === 'highest'
-                            ? (<span>DYSTANS ROSNĄCO <Icon type="arrow-up"/></span>)
-                            : (<span>DYSTANS MALEJĄCO <Icon type="arrow-down"/></span>)}</button>
-                    </div>
+                <div className={styles.Sort}>
+                    Sortuj według:<button onClick={this.toggleSortingMode} className={styles.SortButton}>
+                        {this.state.mode === 'highest'
+                        ? (<span>DYSTANS ROSNĄCO <Icon type="arrow-up"/></span>)
+                        : (<span>DYSTANS MALEJĄCO <Icon type="arrow-down"/></span>)}</button>
                 </div>
                 <ul className={styles.PharmacyList}>
                     {this.props.data.map((item, index) => (
