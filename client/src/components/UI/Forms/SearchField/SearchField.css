@@ -1,40 +1,42 @@
 .SearchField {
     display: inline-block;
-    margin: 5px auto;
+    margin: 25px auto 0;
     background-color: white;
-    border-radius: 15px;
-    padding-left: 5px;
+    border-radius: 10px;
+    padding-left: 12px;
     color: rgba(0, 0, 0, 0.47);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .SearchField input {
-    /*background: rgba(0, 0, 0, 0.08);*/
-    /*background-color: #C5C5C5;*/
     transition: all 0.4s ease 0s;
-    border-radius: 6px;
     width: 190px;
-    height: 37px;
-    margin: 0px;
+    height: 28px;
     outline: none;
-    border: 1px solid transparent;
-    font: inherit;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
     font-size: 14px;
-    color:  rgba(0, 0, 0, 0.47);
+    color: rgba(0, 0, 0, 0.47);
     box-sizing: border-box;
-    padding: 9px 10px;
+    border-radius: 0;
+    padding: 9px;
 } :required {
     background-color: indianred;
     border: 1px solid red;
 }
 
+.SearchField input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.47);
+}
+
 .SearchField button {
     text-transform: uppercase;
     outline: none;
-    border: 1px solid transparent;
+    border: none;
     background: #7AE274;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 0 10px 10px 0;
+    outline: none;
     font: inherit;
     font-weight: bold;
     font-size: 14px;
