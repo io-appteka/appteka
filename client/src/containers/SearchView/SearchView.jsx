@@ -249,7 +249,7 @@ export class SearchView extends React.Component {
                 <div className={styles.Scrollable}>
                     <Card>
                         { drugDescription[0] && <Description drugInfo={drugDescription[currentDrug]} tags={drugDescription[currentDrug].tags}/>}
-                        {query.drug && <Carousel total={query.drug.length*10} onChange={this.onPageChange}/>}
+                        {query.drug && query.drug.length > 1 && <Carousel total={query.drug.length*10} onChange={this.onPageChange}/>}
                     {this.state.isOpinionsLoaded && drugDescription && <Content pricesListData={{data: this.state.data,name: drugDescription[currentDrug].name}} opinionsData={this.state.opinions}/>}
                         <ProductDetails/>
                     </Card>

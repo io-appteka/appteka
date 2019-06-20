@@ -5,6 +5,7 @@ import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { DrugList } from '../../components/Lists/DrugList/DrugList';
 import { CheckableTag } from '../../components/UI/CheckableTag/CheckableTag';
 import { Icon } from 'antd';
+import axios from 'axios';
 
 
 export class Drugs extends React.Component {
@@ -15,6 +16,7 @@ export class Drugs extends React.Component {
         },
         mode: 'lowest',
         isInput: false,
+        isLoaded: false,
         tags: [],
         drugs: [],
         drugsCopy: [],
@@ -29,41 +31,24 @@ export class Drugs extends React.Component {
         }
         this.setState({query: queryContent, isInput: true});
 
-        this.setState({tags: ["alergia", "oddychanie", "skóra", "bardzo boli", "atopowe zapalenie skóry", "ból", "obrzęk", "jaskra", "wzdęcia", "higiena nosa", "probiotyk", "witamina C"]});
-        this.setState({drugs: [
-            {
-                name: "Prednizon",
-                desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
-                rating: 3.5,
-                opinionsNumber: 21,
-                tags: ["alergia", "oddychanie", "skóra", "atopowe zapalenie skóry"],
-                image: "prednizon.jpg",
-            },
-            {
-                name: "Alka-Prim",
-                desc: "Alka-Prim zawiera kwas acetylosalicylowy, który działa przeciwbólowo, przeciwzapalnie i przeciwgorączkowo.",
-                rating: 1.9,
-                opinionsNumber: 12,
-                tags: ["higiena nosa", "probiotyk", "skóra"],
-                image: "alka-prim.jpg",
-            },
-            {
-                name: "Kofepar",
-                desc: "Stosowany w bólach o słabym lub umiarkowanym nasileniu: bólach głowy, także migrenowych, bólach kostnych, stawowych i mięśniowych, nerwobólach i bólach po zabiegach chirurgicznych i stomatologicznych oraz w stanach gorączkowych.",
-                rating: 5.0,
-                opinionsNumber: 9,
-                tags: ["obrzęk", "oddychanie", "ból", "jaskra"],
-                image: "kofepar.jpg",
-            },
-            {
-                name: "Efferalgan czopki",
-                desc: "Stosowany jako środek przeciwgorączkowy i przeciwbólowy w bólach różnego pochodzenia (bóle głowy, zębów, stawowe, miesiączkowe, nerwobóle i inne).",
-                rating: 2.8,
-                opinionsNumber: 33,
-                tags: ["alergia", "oddychanie", "bardzo boli", "wzdęcia", "higiena nosa"],
-                image: "efferalgan-czopki.jpg",
-            }
-        ]}, () => this.sortByRating(this.state.drugs));
+        axios.get('https://apteka.azurewebsites.net/api/drugs/all').then(response => {
+            const temp = [];
+            response.data.map(drug => drug.tags.map(tag => temp.push(tag.value.toLowerCase())));
+            const temp2 = [...new Set(temp)];
+
+            this.setState({
+                drugs: response.data.map(drug => (
+                {
+                    name: drug.name,
+                    desc: drug.description,
+                    rating: drug.rating,
+                    opinionsNumber: drug.opinions === null ? 0 : drug.opinions.length,
+                    tags: drug.tags.map(tag => tag.value.toLowerCase()),
+                    image: drug.name.toLowerCase() + '.jpg',
+                })),
+                tags: temp2,
+            }, () => {this.setState({isLoaded: true}); this.sortByRating(this.state.drugs) });
+        })
     };
 
 
@@ -136,7 +121,7 @@ export class Drugs extends React.Component {
                                 ? (<span>OCENA ROSNĄCO <Icon type="arrow-up"/></span>)
                                 : (<span>OCENA MALEJĄCO <Icon type="arrow-down"/></span>)}</button>
                         </div>
-                        <DrugList drugs={this.state.drugs}/>
+                        {this.state.isLoaded && <DrugList drugs={this.state.drugs}/>}
                     </Card>
                 </div>
             </div>

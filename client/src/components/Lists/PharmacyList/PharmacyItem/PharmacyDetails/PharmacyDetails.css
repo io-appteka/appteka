@@ -1,10 +1,9 @@
-.LocationItem {
+.PharmacyDetails {
     font-size: 14px;
     padding: 10px 0;
-    display:flex;
 }
 
-.LocationItem svg {
+.PharmacyDetails svg {
     padding-right: 5px;
     margin-bottom: -2px;
 }
@@ -24,11 +23,12 @@
 }
 
 .Info:nth-child(2) {
-    width: 60px;
+    width: 100px;
 }
 
 .Info:nth-child(3) {
-    width: 80px;
+    width: 120px;
+    border-right: none;
 }
 
 .Info:nth-child(4) {

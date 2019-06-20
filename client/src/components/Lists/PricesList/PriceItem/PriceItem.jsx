@@ -45,13 +45,13 @@ class PriceItem extends React.Component {
         }
 
         return (
-            <li className={styles.PriceItem} onClick={this.clickHandler}>
+            <li className={styles.PriceItem}>
                 <div className={styles.FlexBox}>
                     <div className={styles.PharmacyName}>{pharmacyName}</div>
                     <div className={styles.Price}>{price}<small> zł</small></div>
                 </div>
                 <div className={styles.FlexBox}>
-                    <div className={styles.Locations}>lokalizacje{isOpened ? <Icon type="up"/> : <Icon type="down"/>}</div>
+                    <div className={styles.Locations} onClick={this.clickHandler}>lokalizacje{isOpened ? <Icon type="up"/> : <Icon type="down"/>}</div>
                     {isAuthenticated && <button className={styles.ReportLink} 
                     onClick={this.reportHandler}>
                         zgłoś inną cenę</button>}
