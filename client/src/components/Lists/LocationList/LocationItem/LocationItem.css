@@ -1,6 +1,7 @@
 .LocationItem {
     font-size: 14px;
     padding: 10px 0;
+    display:flex;
 }
 
 .LocationItem svg {
