@@ -34,7 +34,7 @@ export class Drugs extends React.Component {
             {
                 name: "Prednizon",
                 desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
-                rating: 3.2,
+                rating: 3.5,
                 opinionsNumber: 21,
                 tags: ["alergia", "oddychanie", "skóra", "atopowe zapalenie skóry"],
                 image: "prednizon.jpg",
