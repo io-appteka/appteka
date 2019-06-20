@@ -26,7 +26,6 @@ class PharmacyItem extends React.Component {
 
     render(){
         const { distance, pharmacyName, location } = this.props;
-        console.log(this.props);
         
         return (
             <li className={styles.PharmacyItem} onClick={this.clickHandler}>
