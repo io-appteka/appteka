@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Map.css';
-import  GoogleMapReact  from 'google-map-react';
-import  Marker  from 'google-maps-react';
-import { Modal } from '../UI/Modal/Modal';
+import GoogleMapReact from 'google-map-react';
+import {Marker} from 'google-maps-react';
+import {Modal} from '../UI/Modal/Modal';
 import Icon from "antd/es/icon";
 
-const MapPointer = ({x,y}) => <Icon className={styles.MapPointer} type="environment"/>;
+const MapPointer = () => <Icon className={styles.MapPointer} type="environment"/>;
 
 const defaultOptions = {
     styles: [styles.Map],
@@ -16,7 +16,7 @@ const defaultOptions = {
     draggingCursor: 'move',
 };
 
-export const Map = ({show, x, y, onExit}) => {
+export const Map = ({show, cords, onExit}) => {
 
     const KrakowCoordinates = {
         lat: 50.05,
@@ -39,18 +39,23 @@ export const Map = ({show, x, y, onExit}) => {
                 <GoogleMapReact
                     defaultOptions={defaultOptions}
                     options={defaultOptions}
-                    bootstrapURLKeys={{ key: 'AIzaSyD_mCIprOJMABm_0bReqkVFGr2cOxO2Jx4' }}
-                    defaultCenter={defaultProps.center}
+                    bootstrapURLKeys={{key: 'AIzaSyD_mCIprOJMABm_0bReqkVFGr2cOxO2Jx4'}}
+                    center={defaultProps.center}
                     defaultZoom={defaultProps.zoom}
+
                 >
-                    <MapPointer
-                        x={x}
-                        y={y}
+                    <Marker
+                        title={'The marker`s title will appear as a tooltip.'}
+                        name={'SOMA'}
+                        position={{lat: 50.05, lng: 19.95}}
+                        // lat={cords.lat}
+                        // lng={cords.lng}
+                        // name={'Your position'}
                     />
-                    {/*<Marker*/}
-                    {/*lat={19.95}*/}
-                    {/*lng={50.05}*/}
-                    {/*/>*/}
+                    <MapPointer
+                        lat={cords.lat}
+                        lng={cords.lng}
+                    />
                 </GoogleMapReact>
             </div>
         </Modal>

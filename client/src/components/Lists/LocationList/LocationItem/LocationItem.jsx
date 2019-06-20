@@ -18,7 +18,7 @@ const locationItem = ({info}) => {
             <div className={styles.Info}><span>{info.openingHours}</span></div>
             <div className={styles.Info}><span>tel. {info.phone}</span></div>
             <button className={styles.Button} onClick={onClickHandler}><Icon type="environment" theme="filled"/>Mapa</button>
-            <Map show={show} x={info.x} y={info.y} onExit={onClickHandler}/>
+            <Map show={show} cords={info.coordinates} onExit={onClickHandler}/>
         </li>
     )
 };

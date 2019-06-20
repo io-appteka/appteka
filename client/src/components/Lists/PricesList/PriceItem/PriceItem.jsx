@@ -24,17 +24,17 @@ class PriceItem extends React.Component {
     reportHandler = (event) => {
         event.stopPropagation();
         this.setState({modal : {loading: false, show : true}});
-    }
+    };
 
     onCancelHandler = (event) => {
         event.stopPropagation();
         this.setState({modal: {loading: false, show: false}});
-    }
+    };
 
     onOkHandler = (event) => {
         event.stopPropagation();
         this.setState({modal: {loading: false, show: false}});
-    }
+    };
 
     render(){
         const { pharmacyName, price, locations, drugName, isAuthenticated } = this.props;

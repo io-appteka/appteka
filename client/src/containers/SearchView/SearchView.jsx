@@ -99,6 +99,7 @@ export class SearchView extends React.Component {
                         openingHours: '7:30 - 21:00',
                         phone: '12 632 32 36',
                         pharmacyStoreId: 'fsdlkfsd',
+                        coordinates: {lat: '50.06', lng: '19.93'}
                     },
                     {
                         address: 'Aleja Pokoju 14',
@@ -106,6 +107,7 @@ export class SearchView extends React.Component {
                         openingHours: '0:00 - 0:00',
                         phone: '12 832 91 27',
                         pharmacyStoreId: 'jf32e9esd',
+                        coordinates: {lat: '50.05', lng: '19.95'}
                     },
                     {
                         address: 'Stella-Sawickiego 12',
@@ -113,6 +115,7 @@ export class SearchView extends React.Component {
                         openingHours: '8:30 - 19:00',
                         phone: '42 650 02 36',
                         pharmacyStoreId: 'f409urq3ie',
+                        coordinates: {lat: '50.07', lng: '19.98'}
                     },
                 ],
             },
@@ -124,9 +127,10 @@ export class SearchView extends React.Component {
                     {
                         address: 'Prądnicka 7',
                         distance: 0.78,
-                        openingHours: '8:30 - 19:00',
-                        phone: '42 650 02 36',
+                        openingHours: '7:30 - 21:00',
+                        phone: '12 632 32 36',
                         pharmacyStoreId: 'fsdlkfsd',
+                        coordinates: {lat: '50.06', lng: '19.93'}
                     },
                     {
                         address: 'Aleja Pokoju 14',
@@ -134,13 +138,15 @@ export class SearchView extends React.Component {
                         openingHours: '0:00 - 0:00',
                         phone: '12 832 91 27',
                         pharmacyStoreId: 'jf32e9esd',
+                        coordinates: {lat: '50.05', lng: '19.95'}
                     },
                     {
                         address: 'Stella-Sawickiego 12',
                         distance: 1.33,
-                        openingHours: '7:30 - 21:00',
-                        phone: '12 632 32 36',
+                        openingHours: '8:30 - 19:00',
+                        phone: '42 650 02 36',
                         pharmacyStoreId: 'f409urq3ie',
+                        coordinates: {lat: '50.07', lng: '19.98'}
                     },
                 ],
             },
@@ -152,16 +158,18 @@ export class SearchView extends React.Component {
                     {
                         address: 'Prądnicka 7',
                         distance: 0.78,
-                        openingHours: '0:00 - 0:00',
-                        phone: '12 832 91 27',
+                        openingHours: '7:30 - 21:00',
+                        phone: '12 632 32 36',
                         pharmacyStoreId: 'fsdlkfsd',
+                        coordinates: {lat: '50.06', lng: '19.93'}
                     },
                     {
                         address: 'Aleja Pokoju 14',
                         distance: 0.94,
-                        openingHours: '7:30 - 21:00',
-                        phone: '12 632 32 36',
+                        openingHours: '0:00 - 0:00',
+                        phone: '12 832 91 27',
                         pharmacyStoreId: 'jf32e9esd',
+                        coordinates: {lat: '50.05', lng: '19.95'}
                     },
                     {
                         address: 'Stella-Sawickiego 12',
@@ -169,6 +177,7 @@ export class SearchView extends React.Component {
                         openingHours: '8:30 - 19:00',
                         phone: '42 650 02 36',
                         pharmacyStoreId: 'f409urq3ie',
+                        coordinates: {lat: '50.07', lng: '19.98'}
                     },
                 ],
             },
@@ -180,23 +189,26 @@ export class SearchView extends React.Component {
                     {
                         address: 'Prądnicka 7',
                         distance: 0.78,
-                        openingHours: '8:30 - 19:00',
-                        phone: '42 650 02 36',
+                        openingHours: '7:30 - 21:00',
+                        phone: '12 632 32 36',
                         pharmacyStoreId: 'fsdlkfsd',
+                        coordinates: {lat: '50.06', lng: '19.93'}
                     },
                     {
                         address: 'Aleja Pokoju 14',
                         distance: 0.94,
-                        openingHours: '7:30 - 21:00',
-                        phone: '12 632 32 36',
+                        openingHours: '0:00 - 0:00',
+                        phone: '12 832 91 27',
                         pharmacyStoreId: 'jf32e9esd',
+                        coordinates: {lat: '50.05', lng: '19.95'}
                     },
                     {
                         address: 'Stella-Sawickiego 12',
                         distance: 1.33,
-                        openingHours: '0:00 - 0:00',
-                        phone: '12 832 91 27',
+                        openingHours: '8:30 - 19:00',
+                        phone: '42 650 02 36',
                         pharmacyStoreId: 'f409urq3ie',
+                        coordinates: {lat: '50.07', lng: '19.98'}
                     },
                 ],
             },
@@ -208,23 +220,26 @@ export class SearchView extends React.Component {
                     {
                         address: 'Prądnicka 7',
                         distance: 0.78,
-                        openingHours: '0:00 - 0:00',
-                        phone: '12 832 91 27',
+                        openingHours: '7:30 - 21:00',
+                        phone: '12 632 32 36',
                         pharmacyStoreId: 'fsdlkfsd',
+                        coordinates: {lat: '50.06', lng: '19.93'}
                     },
                     {
                         address: 'Aleja Pokoju 14',
                         distance: 0.94,
-                        openingHours: '7:30 - 21:00',
-                        phone: '12 632 32 36',
+                        openingHours: '0:00 - 0:00',
+                        phone: '12 832 91 27',
                         pharmacyStoreId: 'jf32e9esd',
+                        coordinates: {lat: '50.05', lng: '19.95'}
                     },
                     {
                         address: 'Stella-Sawickiego 12',
                         distance: 1.33,
-                        openingHours: '7:30 - 21:00',
-                        phone: '12 632 32 36',
+                        openingHours: '8:30 - 19:00',
+                        phone: '42 650 02 36',
                         pharmacyStoreId: 'f409urq3ie',
+                        coordinates: {lat: '50.07', lng: '19.98'}
                     },
                 ],
             },
