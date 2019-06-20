@@ -1,5 +1,9 @@
 .Map {
-    height: 180px;
-    width: 270px;
-    float:right;
+    height: 400px;
+    width: 470px;
+}
+
+.MapPointer {
+    color: #006600;
+    font-size: 27px;
 }

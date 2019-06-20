@@ -1,45 +1,56 @@
 import React from 'react';
 import styles from './Map.css';
 import  GoogleMapReact  from 'google-map-react';
+import  Marker  from 'google-maps-react';
+import { Modal } from '../UI/Modal/Modal';
+import Icon from "antd/es/icon";
 
-const MapPointer = ({ text }) => <div>{text}</div>;
+const MapPointer = ({x,y}) => <Icon className={styles.MapPointer} type="environment"/>;
+
 const defaultOptions = {
     styles: [styles.Map],
     mapTypeControl: false,
     zoomControl: true,
     streetViewControl: true,
     draggableCursor: 'default',
-    draggingCursor: 'move'
+    draggingCursor: 'move',
 };
 
-const KrakowCoordinates = {
-    lat: 50.05,
-    lng: 19.95,
-}
-export class Map extends React.Component {
+export const Map = ({modal, x, y}) => {
 
-    static defaultProps = {
-        center: KrakowCoordinates,
-        zoom: 11
+    const KrakowCoordinates = {
+        lat: 50.05,
+        lng: 19.95,
     };
 
-    render() {
-        return (
+    const defaultProps = {
+        center: KrakowCoordinates,
+        zoom: 12
+    };
+    return (
+        <Modal
+            title="Lokalizacja"
+            visible={modal.show}
+            footer={null}
+        >
             <div className={styles.Map}>
                 <GoogleMapReact
                     defaultOptions={defaultOptions}
                     options={defaultOptions}
                     bootstrapURLKeys={{ key: 'AIzaSyD_mCIprOJMABm_0bReqkVFGr2cOxO2Jx4' }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
+                    defaultCenter={defaultProps.center}
+                    defaultZoom={defaultProps.zoom}
                 >
-                    {/* <MapPointer
-                        lat={50.05}
-                        lng={19.95}
-                        text="My Marker"
-                    /> */}
+                    <MapPointer
+                        x={x}
+                        y={y}
+                    />
+                    {/*<Marker*/}
+                    {/*lat={19.95}*/}
+                    {/*lng={50.05}*/}
+                    {/*/>*/}
                 </GoogleMapReact>
             </div>
-        );
-    }
-}
+        </Modal>
+    );
+};
