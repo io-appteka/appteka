@@ -49,22 +49,6 @@ export class SearchView extends React.Component {
                 this.setState({drugDescription: tempDrugDescription});
             })
         }))
-        //fetching data from server about drug description - name sent -> description received
-        // this.setState({drugDescription: [{
-        //     name: "Prednizon",
-        //     desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
-        //     rating: 3.5,
-        //     opinionsNumber: 71,
-        //     tags: ["alergia", "oddychanie", "skóra"],
-        //     image: "prednizon.jpg",
-        // }, {
-        //     name: "Another drug",
-        //     desc: "description",
-        //     rating: 5.0,
-        //     opinionsNumber: 11,
-        //     tags: ["alergia", "oddychanie", "skóra"],
-        //     image: "prednizon.jpg",
-        // }]});
 
         //fetching data from server about drug opinion - name sent -> opinion received
         this.setState({ opinions: {

@@ -2,6 +2,8 @@ import React from 'react';
 import { Card } from '../../components/Card/Card';
 import styles from './PharmacyList.css';
 import { PharmacyList as Pharmacies } from'../../components/Lists/PharmacyList/PharmacyList';
+import axios from 'axios';
+
 export class PharmacyList extends React.Component {
     state = {
         pharmacyList: [],
@@ -9,28 +11,19 @@ export class PharmacyList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({pharmacyList: [
-            {
-                distance: 1,
-                pharmacyChainId: 1,
-                pharmacyName: 'Słoneczna',
+        axios.get('https://apteka.azurewebsites.net/api/pharmacystores/all').then((response) => {
+            const { data } = response;
+            this.setState({pharmacyList: data.map(pharmacy => ({
+                distance: pharmacy.distance,
+                pharmacyChainId: pharmacy.id,
+                pharmacyName: pharmacy.pharmacyName,
                 location: {
-                    address: 'ulica Grzegórzecka 12',
-                    openingHours: '10:00 - 15:00',
-                    phone: '2312312312',
-                },
-            },
-            {
-                distance: 2,
-                pharmacyChainId: 2,
-                pharmacyName: 'Ziko',
-                location: {
-                    address: 'Aleja słoneczna 12',
-                    openingHours: '10:00 - 15:00',
-                    phone: '2312312312',
-                },
-            },
-        ]}, () => this.setState({isLoaded: true}))
+                    address: pharmacy.address,
+                    openingHours: pharmacy.openingHours,
+                    phone: pharmacy.phoneNumber,
+                }
+            }))}, () => this.setState({isLoaded: true}));
+        })
     }
 
     render() {
