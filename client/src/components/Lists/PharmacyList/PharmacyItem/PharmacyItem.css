@@ -1,0 +1,80 @@
+.PharmacyItem {
+    padding: 20px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.PharmacyItem{
+    border-bottom: 1px solid #C5C5C5;
+    border-left: 1px solid #C5C5C5;
+    border-right: 1px solid #C5C5C5;
+}
+
+.PharmacyItem:first-child{
+    border-top: 1px solid #C5C5C5;
+}
+
+.PharmacyName {
+    font-weight: bold;
+    font-size: 30px;
+    color: #4D6565;
+}
+
+.Price {
+    font-weight: bold;
+    font-size: 38px;
+    color: #7AE274;
+}
+
+.Price small {
+    font-size: 25px;
+}
+
+.Locations {
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.47);
+}
+
+.Locations svg {
+    height: 10px;
+    width: 30px;
+}
+
+.FlexBox {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ReportLink {
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    color: rgba(0, 0, 0, 0.25);
+    margin-right: 10px;   
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+.Button {
+    margin-top: 10px;
+    background: transparent;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 4px 10px;
+    color: #7AE274;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    border: 2px solid #7AE274;
+    border-radius: 10px;
+    transition-duration: .2s;
+}
+
+.Button:hover {
+    background-color: #7AE274;
+    color: #ffffff;
+}

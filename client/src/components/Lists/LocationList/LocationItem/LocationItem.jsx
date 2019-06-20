@@ -3,13 +3,9 @@ import styles from './LocationItem.css';
 import { Icon } from 'antd';
 import { withRouter } from "react-router"
 
-const locationItem = ({info, history}) => {
-    const onClickHandler = () => {
-        const queryString = `id=${encodeURIComponent(info.pharmacyStoreId)}`;
-        history.push({
-            pathname: '/store',
-            search: '?' + queryString,
-        });
+const locationItem = ({info}) => {
+    const onClickHandler = (event) => {
+        event.stopPropagation();
     }
 
     return(
@@ -19,7 +15,6 @@ const locationItem = ({info, history}) => {
         <div className={styles.Info}><span>{info.openingHours}</span></div>
         <div className={styles.Info}><span>tel. {info.phone}</span></div>
         <button className={styles.Button} onClick={onClickHandler}><Icon type="environment" theme="filled" />Mapa</button>
-        <button className={styles.Button} onClick={onClickHandler}><Icon type="info-circle" theme="filled" />Szczegóły</button>
     </li>
 )};
 
