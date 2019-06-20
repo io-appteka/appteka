@@ -5,6 +5,7 @@ import { SearchField } from '../../components/UI/Forms/SearchField/SearchField';
 import { Description } from '../../components/Description/Description';
 import  { Content } from '../../components/Content/Content';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails';
+import { Carousel } from '../../components/UI/Carousel/Carousel';
 
 export class SearchView extends React.Component {
     state = {
@@ -24,6 +25,7 @@ export class SearchView extends React.Component {
             opinions: [],
         },
         isOpinionsLoaded: false,
+        currentDrug: 0,
     }
 
     componentDidMount() {
@@ -36,14 +38,21 @@ export class SearchView extends React.Component {
         this.setState({query: queryContent, isInput: true});
 
         //fetching data from server about drug description - name sent -> description received
-        this.setState({drugDescription: {
+        this.setState({drugDescription: [{
             name: "Prednizon",
             desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
             rating: 3.5,
             opinionsNumber: 71,
             tags: ["alergia", "oddychanie", "skóra"],
             image: "prednizon.jpg",
-        }});
+        }, {
+            name: "Another drug",
+            desc: "description",
+            rating: 5.0,
+            opinionsNumber: 11,
+            tags: ["alergia", "oddychanie", "skóra"],
+            image: "prednizon.jpg",
+        }]});
 
         //fetching data from server about drug opinion - name sent -> opinion received
         this.setState({ opinions: {
@@ -222,7 +231,12 @@ export class SearchView extends React.Component {
         ]});
     }
 
+    onPageChange = page => {
+        this.setState({currentDrug: page-1})
+    }
     render() {
+        const { drugDescription, currentDrug, query } = this.state;
+        console.log(drugDescription[currentDrug]);
         return (
             <div className={styles.SearchView}>
                 <div className={styles.Form}>
@@ -234,8 +248,9 @@ export class SearchView extends React.Component {
                 </div>
                 <div className={styles.Scrollable}>
                     <Card>
-                        <Description drugInfo={this.state.drugDescription} tags={this.state.drugDescription.tags}/>
-                    {this.state.isOpinionsLoaded && this.state.drugDescription && <Content pricesListData={{data: this.state.data,name: this.state.drugDescription.name}} opinionsData={this.state.opinions}/>}
+                        { drugDescription[0] && <Description drugInfo={drugDescription[currentDrug]} tags={drugDescription[currentDrug].tags}/>}
+                        {query.drug && <Carousel total={query.drug.length*10} onChange={this.onPageChange}/>}
+                    {this.state.isOpinionsLoaded && drugDescription && <Content pricesListData={{data: this.state.data,name: drugDescription[currentDrug].name}} opinionsData={this.state.opinions}/>}
                         <ProductDetails/>
                     </Card>
                 </div>
