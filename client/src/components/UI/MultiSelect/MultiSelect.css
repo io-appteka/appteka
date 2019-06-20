@@ -17,8 +17,8 @@
     padding: 6px 10px;
     margin: 20px 30px;
     margin-left: 450px;
-    width: 156px;
-    height: 59px;
+    width: 132px;
+    height: 46px;
     box-sizing: border-box;
     transition: all 0.4s ease 0s;
 }
@@ -39,7 +39,7 @@
     background: rgba(0, 95, 116, 0.18);
     border-color:  rgba(0, 95, 116, 0.18);
     border-radius: 10px;
-    height: 59px;
+    height: 46px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -54,7 +54,11 @@
 }
 .MultiSelect :global(.index__ant-select-selection__choice) {
     border-radius: 5px;
-    color: #1888A2;;
+    color: #1888A2;
+    line-height: 24px;
+}
+.MultiSelect :global(.index__ant-select-selection__choice__remove) {
+    line-height: 28px;
 }
 ::-webkit-scrollbar{
     width: 6px;
