@@ -6,6 +6,7 @@ import { Description } from '../../components/Description/Description';
 import  { Content } from '../../components/Content/Content';
 import { ProductDetails } from '../../components/ProductDetails/ProductDetails';
 import { Carousel } from '../../components/UI/Carousel/Carousel';
+import axios from 'axios';
 
 export class SearchView extends React.Component {
     state = {
@@ -15,10 +16,7 @@ export class SearchView extends React.Component {
             opinion: null,
         },
         isInput: false,
-        drugDescription: {
-            name: null,
-            desc: null,
-        },
+        drugDescription: [],
         data: [],
         opinions: {
             opinionsNumber: 0,
@@ -36,23 +34,37 @@ export class SearchView extends React.Component {
         }
         queryContent.drug = queryContent.drug.split(',');
         this.setState({query: queryContent, isInput: true});
-
+        queryContent.drug.forEach((drugId => {
+            axios.get(`https://apteka.azurewebsites.net/api/drugs?id=${drugId}`).then((response) => {
+                const tempDrugDescription = this.state.drugDescription;
+                const drugDescription = {
+                    name: response.data.name,
+                    desc: response.data.description,
+                    rating: response.data.rating,
+                    opinionsNumber: response.data.opinions === null ? 0 : response.data.opinions.length,
+                    tags: response.data.tags.map(tag => tag.value.toLowerCase()),
+                    image: "prednizon.jpg",
+                }
+                tempDrugDescription.push(drugDescription);
+                this.setState({drugDescription: tempDrugDescription});
+            })
+        }))
         //fetching data from server about drug description - name sent -> description received
-        this.setState({drugDescription: [{
-            name: "Prednizon",
-            desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
-            rating: 3.5,
-            opinionsNumber: 71,
-            tags: ["alergia", "oddychanie", "skóra"],
-            image: "prednizon.jpg",
-        }, {
-            name: "Another drug",
-            desc: "description",
-            rating: 5.0,
-            opinionsNumber: 11,
-            tags: ["alergia", "oddychanie", "skóra"],
-            image: "prednizon.jpg",
-        }]});
+        // this.setState({drugDescription: [{
+        //     name: "Prednizon",
+        //     desc: "Prednizon jest hormonem kortykosteroidowym, syntetyczną pochodną kortyzonu, wykazującą działanie przeciwzapalne, przeciwalergiczne dłuższe i ok. 3,5 razy silniejsze niż kortyzon, natomiast słabsze działanie mineralotropowe.",
+        //     rating: 3.5,
+        //     opinionsNumber: 71,
+        //     tags: ["alergia", "oddychanie", "skóra"],
+        //     image: "prednizon.jpg",
+        // }, {
+        //     name: "Another drug",
+        //     desc: "description",
+        //     rating: 5.0,
+        //     opinionsNumber: 11,
+        //     tags: ["alergia", "oddychanie", "skóra"],
+        //     image: "prednizon.jpg",
+        // }]});
 
         //fetching data from server about drug opinion - name sent -> opinion received
         this.setState({ opinions: {
@@ -251,13 +263,12 @@ export class SearchView extends React.Component {
     }
     render() {
         const { drugDescription, currentDrug, query } = this.state;
-        console.log(drugDescription[currentDrug]);
         return (
             <div className={styles.SearchView}>
                 <div className={styles.Form}>
-                    {this.state.isInput && <SearchField
-                        drug={this.state.query.drug[0]}
-                        location={this.state.query.location}
+                    {this.state.isInput && drugDescription[0]  && <SearchField
+                        drug={drugDescription[0].name}
+                        location={query.location}
                         history={this.props.history}
                     />}
                 </div>
@@ -265,7 +276,7 @@ export class SearchView extends React.Component {
                     <Card>
                         { drugDescription[0] && <Description drugInfo={drugDescription[currentDrug]} tags={drugDescription[currentDrug].tags}/>}
                         {query.drug && query.drug.length > 1 && <Carousel total={query.drug.length*10} onChange={this.onPageChange}/>}
-                    {this.state.isOpinionsLoaded && drugDescription && <Content pricesListData={{data: this.state.data,name: drugDescription[currentDrug].name}} opinionsData={this.state.opinions}/>}
+                    {this.state.isOpinionsLoaded && drugDescription[currentDrug] && <Content pricesListData={{data: this.state.data,name: drugDescription[currentDrug].name}} opinionsData={this.state.opinions}/>}
                         <ProductDetails/>
                     </Card>
                 </div>
