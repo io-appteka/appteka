@@ -46,6 +46,7 @@ export class PharmacyList extends React.Component {
                             distance={item.distance}
                             key={index}
                             pharmacyName={item.pharmacyName}
+                            coordinates={item.coordinates}
                             location={item.location}/>))}
                 </ul>
             </div>

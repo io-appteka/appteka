@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './PharmacyItem.css';
 import { PharmacyDetails } from './PharmacyDetails/PharmacyDetails';
 import { Icon } from 'antd';
+import { Map } from '../../../Map/Map';
 
 class PharmacyItem extends React.Component {
     state = {
@@ -9,6 +10,7 @@ class PharmacyItem extends React.Component {
             show: false,
             loading: false,
         },
+        show: false,
     };
     
     onClickHandler = () => {}
@@ -24,8 +26,12 @@ class PharmacyItem extends React.Component {
         this.setState({modal: {loading: false, show: false}});
     }
 
+    onClickHandler = () => {
+        this.setState(prevState => ({show: !prevState.show}));
+    };
+
     render(){
-        const { distance, pharmacyName, location } = this.props;
+        const { distance, pharmacyName, location, coordinates } = this.props;
         
         return (
             <li className={styles.PharmacyItem} onClick={this.clickHandler}>
@@ -34,6 +40,7 @@ class PharmacyItem extends React.Component {
                     <div>
                         <div className={styles.Price}>{distance}<small> km</small></div>
                         <button className={styles.Button} onClick={this.onClickHandler}><Icon type="environment" theme="filled" />Mapa</button>
+                        <Map show={this.state.show} cords={coordinates} onExit={this.onClickHandler}/>
                     </div>
                 </div>
                 <PharmacyDetails info={location}/>
