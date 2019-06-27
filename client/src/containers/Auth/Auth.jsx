@@ -6,10 +6,49 @@ import { NavLink } from 'react-router-dom';
 import styles from './Auth.css';
 import { Input, Button } from 'antd';
 import * as actions from '../../store/actions/index';
+import axios from 'axios';
 
 class auth extends React.Component {
     state = {
         controls: {
+            email: {
+                elementConfig:{
+                    type: 'email',
+                    placeholder: 'Adres e-mail',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    isEmail: true,
+                },
+                valid: true,
+            },
+            password: {
+                elementConfig:{
+                    type: 'password',
+                    placeholder: 'Hasło',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 6,
+                },
+                valid: true,
+            },
+        },
+        signupControls: {
+            login: {
+                elementConfig:{
+                    type: 'text',
+                    placeholder: 'Login',
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    minLength: 6,
+                },
+                valid: true,
+            },
             email: {
                 elementConfig:{
                     type: 'email',
@@ -81,8 +120,19 @@ class auth extends React.Component {
     }
 
     onClickHandler = () => {
-        const { controls, isSignup } = this.state;
-        this.props.onAuth(controls.email.value, controls.password.value, isSignup);
+        const { controls, signupControls, isSignup } = this.state;
+        if (isSignup) {
+            this.props.onAuth(signupControls.email.value, signupControls.password.value, isSignup);
+            setTimeout( () =>
+                axios.post('https://apteka.azurewebsites.net/api/users', {
+                login: signupControls.login.value,
+                id: this.props.userId,
+                location: 'Krakow',
+                }).then((response) => console.log(response))
+            ,5000)
+        } else {
+            this.props.onAuth(controls.email.value, controls.password.value, isSignup);
+        }
     };
 
     switchAuthModeHandler = () => {
@@ -92,12 +142,14 @@ class auth extends React.Component {
     };
 
     onChangeHandler = (event, key) => {
+        const { isSignup } = this.state;
+        const controls = isSignup ? this.state.signupControls : this.state.controls;
         const updatedControls = {
-            ...this.state.controls,
+            ...controls,
             [key]: {
-                ...this.state.controls[key],
+                ...controls[key],
                 value: event.target.value,
-                valid: this.checkValidity(event.target.value, this.state.controls[key].validation),
+                valid: this.checkValidity(event.target.value, controls[key].validation),
             }
         };
 
@@ -106,18 +158,28 @@ class auth extends React.Component {
             formIsValid = updatedControls[key].valid && formIsValid;
         };
 
-        this.setState({controls: updatedControls, formIsValid});
+        if (isSignup) this.setState({signupControls: updatedControls, formIsValid});
+        else this.setState({controls: updatedControls, formIsValid});
     };
 
     render(){
         const { formIsValid, isSignup } = this.state; 
         const formElementsArray = [];
 
-        for (let key in this.state.controls) {
-            formElementsArray.push({
-                id: key,
-                config: this.state.controls[key],
-            })
+        if (isSignup) {
+            for (let key in this.state.signupControls) {
+                formElementsArray.push({
+                    id: key,
+                    config: this.state.signupControls[key],
+                })
+            }
+        } else {
+            for (let key in this.state.controls) {
+                formElementsArray.push({
+                    id: key,
+                    config: this.state.controls[key],
+                })
+            }
         }
 
         let form = formElementsArray.map(formElement => (
@@ -189,6 +251,7 @@ const mapStateToProps = state => {
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
         authRedirectPath: state.auth.authRedirectPath,
+        userId: state.auth.userId,
     };
 };
 

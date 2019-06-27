@@ -42,7 +42,7 @@ export class Drugs extends React.Component {
                     name: drug.name,
                     desc: drug.description,
                     rating: drug.rating,
-                    opinionsNumber: drug.opinions === null ? 0 : drug.opinions.length,
+                    opinionsNumber: drug.drugOpinions === null ? 0 : drug.drugOpinions.length,
                     tags: drug.tags.map(tag => tag.value.toLowerCase()),
                     image: drug.name.toLowerCase() + '.jpg',
                 })),

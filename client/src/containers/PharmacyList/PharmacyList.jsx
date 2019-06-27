@@ -12,12 +12,13 @@ export class PharmacyList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://apteka.azurewebsites.net/api/pharmacystores/all').then((response) => {
+        axios.get('https://apteka.azurewebsites.net/api/pharmacystores/all?location=Krakow').then((response) => {
             const { data } = response;
             this.setState({pharmacyList: data.map(pharmacy => ({
                 distance: parseInt(pharmacy.distance)/1000,
                 pharmacyChainId: pharmacy.id,
                 pharmacyName: pharmacy.pharmacyName,
+                coordinates: pharmacy.coordinates,
                 location: {
                     address: pharmacy.address,
                     openingHours: pharmacy.openingHours,
