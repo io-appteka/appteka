@@ -38,7 +38,7 @@ export class PricesList extends React.Component {
                     <div>
                         <b>{this.props.data.length} </b>
                         {this.props.data.length === 1 && <span> sieć aptek sprzedaje ten produkt </span>}
-                        {this.props.data.length < 5 && <span> sieci aptek sprzedają ten produkt </span>}
+                        {this.props.data.length > 1 && this.props.data.length < 5 && <span> sieci aptek sprzedają ten produkt </span>}
                         {this.props.data.length >= 5 && <span> sieci aptek sprzedaje ten produkt</span>}
                     </div>
                     <div className={styles.Sort}>

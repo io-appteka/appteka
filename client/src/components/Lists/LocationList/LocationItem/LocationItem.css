@@ -14,6 +14,7 @@
     color: #333333;
     padding: 0 15px;
     border-right: 1px solid #555555;
+    line-height: 28px;
 }
 
 .Info:nth-child(1) {
@@ -24,11 +25,11 @@
 }
 
 .Info:nth-child(2) {
-    width: 60px;
+    min-width: 60px;
 }
 
 .Info:nth-child(3) {
-    width: 80px;
+    min-width: 100px;
 }
 
 .Info:nth-child(4) {
