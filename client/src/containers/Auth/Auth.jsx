@@ -40,7 +40,7 @@ class auth extends React.Component {
             login: {
                 elementConfig:{
                     type: 'text',
-                    placeholder: 'Login',
+                    placeholder: 'Nazwa użytkownika',
                 },
                 value: '',
                 validation: {
@@ -86,7 +86,7 @@ class auth extends React.Component {
             this.setState({isSignup: true});
         }
     }
-    
+
     componentWillMount() {
         const { pathname } = this.props.history.location;
         if (pathname === '/auth') {
@@ -163,7 +163,7 @@ class auth extends React.Component {
     };
 
     render(){
-        const { formIsValid, isSignup } = this.state; 
+        const { formIsValid, isSignup } = this.state;
         const formElementsArray = [];
 
         if (isSignup) {

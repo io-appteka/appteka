@@ -9,7 +9,7 @@ export const Description = ({drugInfo, tags}) => (
         <div className={styles.DescriptionContent}>
             <h1>{drugInfo.name}</h1>
 
-            <Rating value={drugInfo.rating} color={'#77D9EE'}/>
+            <Rating value={drugInfo.rating} color={'#22C7B7'}/>
             <span>{drugInfo.rating.toFixed(1)}</span>
             <span>({drugInfo.opinionsNumber} opinii)</span>
 
