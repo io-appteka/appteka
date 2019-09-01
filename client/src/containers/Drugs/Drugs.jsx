@@ -31,7 +31,7 @@ export class Drugs extends React.Component {
         }
         this.setState({query: queryContent, isInput: true});
 
-        axios.get('https://apteka.azurewebsites.net/api/drugs/all').then(response => {
+        axios.get('https://localhost:44363/api/drugs/all').then(response => {
             const temp = [];
             response.data.map(drug => drug.tags.map(tag => temp.push(tag.value.toLowerCase())));
             const temp2 = [...new Set(temp)];
