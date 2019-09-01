@@ -39,7 +39,7 @@ export class SearchView extends React.Component {
         }
         this.setState({query: queryContent, isInput: true, numberToLoad: queryContent.drug.length, pharmiaciesByDrugs}, () => {
             queryContent.drug.forEach(((drugId, index) => {
-                axios.get(`https://apteka.azurewebsites.net/api/drugs?id=${drugId}`).then((response) => {
+                axios.get(`https://localhost:44363/api/drugs?id=${drugId}`).then((response) => {
                 const tempDrugDescription = [...this.state.drugDescription];
                 const tempOpinionList = [...this.state.opinionList];
                 const tempPharmacies = [...this.state.pharmiaciesByDrugs];

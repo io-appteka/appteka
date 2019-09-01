@@ -10,7 +10,7 @@ export class StartPage extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://apteka.azurewebsites.net/api/drugs/all').then((response) => {
+        axios.get('https://localhost:44363/api/drugs/all').then((response) => {
             this.setState({
                 drugList: response.data.map(item => ({
                     id: item.id,

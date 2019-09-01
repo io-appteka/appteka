@@ -123,12 +123,29 @@ class auth extends React.Component {
         const { controls, signupControls, isSignup } = this.state;
         if (isSignup) {
             this.props.onAuth(signupControls.email.value, signupControls.password.value, isSignup);
-            setTimeout( () =>
-                axios.post('https://apteka.azurewebsites.net/api/users', {
-                login: signupControls.login.value,
-                id: this.props.userId,
-                location: 'Krakow',
+            setTimeout( () => {
+                const data = JSON.stringify({
+                    username: signupControls.login.value,
+                    id: this.props.userId,
+                    location: 'Krakow',
+                });
+                console.log(data);
+
+                fetch('https://localhost:44363/api/users', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: data,
                 }).then((response) => console.log(response))
+                // axios.post('https://localhost:44363/api/users', {
+                // login: signupControls.login.value,
+                // id: this.props.userId,
+                // location: 'Krakow',
+                // }).then((response) => console.log(response))
+            }
             ,5000)
         } else {
             this.props.onAuth(controls.email.value, controls.password.value, isSignup);
